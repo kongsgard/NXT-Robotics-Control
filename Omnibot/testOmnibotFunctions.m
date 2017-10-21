@@ -27,7 +27,20 @@ plot(x, y, 'LineWidth', 5); % Should plot a square from (0,0) -> (1,0) -> (1,1) 
 %% Create joint trajectories to move the center of body of the robot in a _square_ pattern
 sideLength = 1;     % Square side length (meters)
 resolution = 1000;  % Number of points along each side of the square
-[x, y] = createSquarePattern( sideLength, resolution );
+[x, y] = createSquarePattern(sideLength, resolution);
+
+dt = 0.01; % Time step
+[q, q_dot] = calculateJointTrajectories(x, y, dt);
+
+%% Test [x, y] = createCircularPattern( radius, center, resolution )
+[x, y] = createCircularPattern(0.5, [0, 0.5], 1000);
+plot(x, y, 'LineWidth', 5); % Should plot a circle with a center in (0, 0.5)
+
+%% Create joint trajectories to move the center of body of the robot in a _circular_ pattern
+radius = 1;        % Circle radius (meters)
+center = [0, 0.5]; % Center of the circle (meters)
+resolution = 5000; % Number of points along the circle perimeter
+[x, y] = createCircularPattern(radius, center, resolution);
 
 dt = 0.01; % Time step
 [q, q_dot] = calculateJointTrajectories(x, y, dt);
