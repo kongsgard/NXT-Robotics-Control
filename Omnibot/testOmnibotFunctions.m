@@ -29,8 +29,25 @@ sideLength = 1;     % Square side length (meters)
 resolution = 1000;  % Number of points along each side of the square
 [x, y] = createSquarePattern(sideLength, resolution);
 
-dt = 0.01; % Time step
+dt = 0.001; % Time step
 [q, q_dot] = calculateJointTrajectories(x, y, dt);
+t = linspace(0, length(q)*dt, length(q));
+
+figure(1); clf; hold on;
+subplot(2, 1, 1);
+plot(t, q);
+title('Trajectories, $q$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angles (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'$q_1$', '$q_2$', '$q_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
+
+subplot(2, 1, 2);
+plot(t, q_dot);
+title('Velocities, $\dot{q}$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angular speed (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'$\dot{q}_1$', '$\dot{q}_2$', '$\dot{q}_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
+
 
 %% Test [x, y] = createCircularPattern( radius, center, resolution )
 [x, y] = createCircularPattern(0.5, [0, 0.5], 1000);
@@ -44,3 +61,19 @@ resolution = 5000; % Number of points along the circle perimeter
 
 dt = 0.01; % Time step
 [q, q_dot] = calculateJointTrajectories(x, y, dt);
+t = linspace(0, length(q)*dt, length(q));
+
+figure(2); clf; hold on;
+subplot(2, 1, 1);
+plot(t, q);
+title('Trajectories, $q$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angles (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'$q_1$', '$q_2$', '$q_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
+
+subplot(2, 1, 2);
+plot(t, q_dot);
+title('Velocities, $\dot{q}$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angular speed (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'$\dot{q}_1$', '$\dot{q}_2$', '$\dot{q}_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');

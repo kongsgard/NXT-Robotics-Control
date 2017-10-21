@@ -6,8 +6,8 @@ function [ x, y ] = createCircularPattern( radius, center, resolution )
 %   counter-clockwise direction.
 
 theta = -pi/2:1/resolution:3/2*pi;
-x = radius * cos(theta') + center(1);
-y = radius * sin(theta') + center(2);
+x = radius * cos(theta) + center(1);
+y = radius * sin(theta) + center(2);
 
 end
 
