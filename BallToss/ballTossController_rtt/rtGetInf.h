@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'ballTossController'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.12
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 18 22:04:03 2017
+ * C/C++ source code generated on : Fri Oct 20 15:20:33 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7

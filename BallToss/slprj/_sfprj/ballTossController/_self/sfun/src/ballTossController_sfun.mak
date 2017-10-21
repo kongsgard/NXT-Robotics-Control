@@ -34,7 +34,7 @@ MLSLSF_INCLUDES = \
     /I "C:\Program Files\MATLAB\R2014a\simulink\include" \
     /I "C:\Program Files\MATLAB\R2014a\stateflow\c\mex\include" \
     /I "C:\Program Files\MATLAB\R2014a\rtw\c\src" \
-    /I "C:\Users\yutongfeng\Documents\GitHub\NXT-Robotics-Control\BallToss\slprj\_sfprj\ballTossController\_self\sfun\src" 
+    /I "C:\Users\yutongfeng\Documents\MATLAB\slprj\_sfprj\ballTossController\_self\sfun\src" 
 
 COMPILER_INCLUDES = /I "$(MSVC_ROOT)\include"
 

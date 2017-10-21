@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'ballTossController'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.12
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 18 22:04:03 2017
+ * C/C++ source code generated on : Fri Oct 20 15:20:33 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -124,22 +124,22 @@ P_ballTossController_T ballTossController_P = {
                                         * Referenced by: '<Root>/Switch2'
                                         */
   0.017453292519943295,                /* Expression: pi/180
-                                        * Referenced by: '<S24>/Gain1'
+                                        * Referenced by: '<S22>/Gain1'
                                         */
   0.81818181818181823,                 /* Computed Parameter: Internal_A_g
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   2.0,                                 /* Computed Parameter: Internal_B_p
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   -1.6528925619834709,                 /* Computed Parameter: Internal_C_m
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   18.181818181818183,                  /* Computed Parameter: Internal_D_p
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   100.0,                               /* Expression: 100
                                         * Referenced by: '<S7>/Saturation'
@@ -183,7 +183,7 @@ P_ballTossController_T ballTossController_P = {
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/Switch3'
                                         */
-  1U                                   /* Computed Parameter: THROWSWITCH_CurrentSetting
+  0U                                   /* Computed Parameter: THROWSWITCH_CurrentSetting
                                         * Referenced by: '<Root>/THROW SWITCH'
                                         */
 };

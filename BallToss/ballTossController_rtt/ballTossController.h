@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'ballTossController'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.12
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 18 22:04:03 2017
+ * C/C++ source code generated on : Fri Oct 20 15:20:33 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -93,7 +93,7 @@ typedef struct {
   real_T Gain1_i;                      /* '<S6>/Gain1' */
   real_T Sum1;                         /* '<S6>/Sum1' */
   real_T Switch2;                      /* '<Root>/Switch2' */
-  real_T Gain1_c;                      /* '<S24>/Gain1' */
+  real_T Gain1_c;                      /* '<S22>/Gain1' */
   real_T Sum_g;                        /* '<S7>/Sum' */
   real_T Gain1_a;                      /* '<S7>/Gain1' */
   real_T Sum1_o;                       /* '<S7>/Sum1' */
@@ -112,7 +112,7 @@ typedef struct {
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
   real_T Internal_DSTATE;              /* '<S17>/Internal' */
-  real_T Internal_DSTATE_j;            /* '<S25>/Internal' */
+  real_T Internal_DSTATE_j;            /* '<S23>/Internal' */
   real_T Internal_DSTATE_p;            /* '<S3>/Internal' */
   real_T Internal_DSTATE_l;            /* '<S4>/Internal' */
   real_T t_off;                        /* '<Root>/MATLAB Function3' */
@@ -241,22 +241,22 @@ struct P_ballTossController_T_ {
                                         * Referenced by: '<Root>/Switch2'
                                         */
   real_T Gain1_Gain_o;                 /* Expression: pi/180
-                                        * Referenced by: '<S24>/Gain1'
+                                        * Referenced by: '<S22>/Gain1'
                                         */
   real_T Internal_A_g;                 /* Computed Parameter: Internal_A_g
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   real_T Internal_B_p;                 /* Computed Parameter: Internal_B_p
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   real_T Internal_C_m;                 /* Computed Parameter: Internal_C_m
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   real_T Internal_D_p;                 /* Computed Parameter: Internal_D_p
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   real_T Internal_X0_k;                /* Expression: 0
-                                        * Referenced by: '<S25>/Internal'
+                                        * Referenced by: '<S23>/Internal'
                                         */
   real_T Saturation_UpperSat_i;        /* Expression: 100
                                         * Referenced by: '<S7>/Saturation'
@@ -397,20 +397,18 @@ extern RT_MODEL_ballTossController_T *const ballTossController_M;
  * '<S15>'  : 'ballTossController/LTI System1/Output Delay'
  * '<S16>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/Degrees to Radians'
  * '<S17>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System'
- * '<S18>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/MATLAB Function'
- * '<S19>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/Motor1'
- * '<S20>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/Ramp'
- * '<S21>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System/IO Delay'
- * '<S22>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System/Input Delay'
- * '<S23>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System/Output Delay'
- * '<S24>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/Degrees to Radians'
- * '<S25>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System'
- * '<S26>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/MATLAB Function'
- * '<S27>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/Motor1'
- * '<S28>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/Ramp'
- * '<S29>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System/IO Delay'
- * '<S30>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System/Input Delay'
- * '<S31>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System/Output Delay'
+ * '<S18>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/Motor1'
+ * '<S19>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System/IO Delay'
+ * '<S20>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System/Input Delay'
+ * '<S21>'  : 'ballTossController/MOTOR B CONTROL (theta 1)/LTI System/Output Delay'
+ * '<S22>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/Degrees to Radians'
+ * '<S23>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System'
+ * '<S24>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/MATLAB Function'
+ * '<S25>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/Motor1'
+ * '<S26>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/Ramp'
+ * '<S27>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System/IO Delay'
+ * '<S28>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System/Input Delay'
+ * '<S29>'  : 'ballTossController/MOTOR C CONTROL (theta 2)/LTI System/Output Delay'
  */
 #endif                                 /* RTW_HEADER_ballTossController_h_ */
 

@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'ballTossController'.
  *
- * Model version                  : 1.11
+ * Model version                  : 1.12
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 18 22:04:03 2017
+ * C/C++ source code generated on : Fri Oct 20 15:20:33 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -359,7 +359,7 @@ void ballTossController_output(void)
 
   /* End of DataTypeConversion: '<S6>/Data Type Conversion1' */
 
-  /* DataTypeConversion: '<S19>/Data Type Conversion' */
+  /* DataTypeConversion: '<S18>/Data Type Conversion' */
   rtb_Encoder_0 = ballTossController_B.DataTypeConversion1;
   if (ballTossController_B.DataTypeConversion1 > 127) {
     rtb_Encoder_0 = 127;
@@ -369,8 +369,8 @@ void ballTossController_output(void)
     }
   }
 
-  /* S-Function (nxt_motor): '<S19>/Motor' incorporates:
-   *  DataTypeConversion: '<S19>/Data Type Conversion'
+  /* S-Function (nxt_motor): '<S18>/Motor' incorporates:
+   *  DataTypeConversion: '<S18>/Data Type Conversion'
    */
   tmp = (int8_T)rtb_Encoder_0;
   setMotor(&tmp, 2U, 2U);
@@ -409,7 +409,7 @@ void ballTossController_output(void)
    */
   rtb_Saturation = rtb_Encoder_0;
 
-  /* Gain: '<S24>/Gain1' */
+  /* Gain: '<S22>/Gain1' */
   ballTossController_B.Gain1_c = ballTossController_P.Gain1_Gain_o *
     rtb_Saturation;
 
@@ -420,7 +420,7 @@ void ballTossController_output(void)
   /* Gain: '<S7>/Gain' */
   rtb_Gain = ballTossController_P.Kp2 * ballTossController_B.Sum_g;
 
-  /* DiscreteStateSpace: '<S25>/Internal' */
+  /* DiscreteStateSpace: '<S23>/Internal' */
   {
     rtb_Saturation = (ballTossController_P.Internal_C_m)*
       ballTossController_DW.Internal_DSTATE_j;
@@ -460,7 +460,7 @@ void ballTossController_output(void)
 
   /* End of DataTypeConversion: '<S7>/Data Type Conversion1' */
 
-  /* DataTypeConversion: '<S27>/Data Type Conversion' */
+  /* DataTypeConversion: '<S25>/Data Type Conversion' */
   rtb_Encoder_0 = ballTossController_B.DataTypeConversion1_j;
   if (ballTossController_B.DataTypeConversion1_j > 127) {
     rtb_Encoder_0 = 127;
@@ -470,8 +470,8 @@ void ballTossController_output(void)
     }
   }
 
-  /* S-Function (nxt_motor): '<S27>/Motor' incorporates:
-   *  DataTypeConversion: '<S27>/Data Type Conversion'
+  /* S-Function (nxt_motor): '<S25>/Motor' incorporates:
+   *  DataTypeConversion: '<S25>/Data Type Conversion'
    */
   tmp_0 = (int8_T)rtb_Encoder_0;
   setMotor(&tmp_0, 3U, 2U);
@@ -526,7 +526,7 @@ void ballTossController_update(void)
                   sizeof(real_T)*1);
   }
 
-  /* Update for DiscreteStateSpace: '<S25>/Internal' */
+  /* Update for DiscreteStateSpace: '<S23>/Internal' */
   {
     real_T xnew[1];
     xnew[0] = ballTossController_P.Internal_A_g*
@@ -681,7 +681,7 @@ void ballTossController_initialize(void)
   /* InitializeConditions for DiscreteStateSpace: '<S17>/Internal' */
   ballTossController_DW.Internal_DSTATE = ballTossController_P.Internal_X0;
 
-  /* InitializeConditions for DiscreteStateSpace: '<S25>/Internal' */
+  /* InitializeConditions for DiscreteStateSpace: '<S23>/Internal' */
   ballTossController_DW.Internal_DSTATE_j = ballTossController_P.Internal_X0_k;
 
   /* InitializeConditions for DiscreteStateSpace: '<S3>/Internal' */
@@ -694,10 +694,10 @@ void ballTossController_initialize(void)
 /* Model terminate function */
 void ballTossController_terminate(void)
 {
-  /* Terminate for S-Function (nxt_motor): '<S19>/Motor' */
+  /* Terminate for S-Function (nxt_motor): '<S18>/Motor' */
   terminateMotor(2U, 2U);
 
-  /* Terminate for S-Function (nxt_motor): '<S27>/Motor' */
+  /* Terminate for S-Function (nxt_motor): '<S25>/Motor' */
   terminateMotor(3U, 2U);
 }
 
