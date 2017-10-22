@@ -31,7 +31,6 @@ resolution = 100;  % Number of points along each side of the square
 
 dt = 1; % Time step (seconds)
 [t, q, q_dot] = calculateJointTrajectories(x, y, dt);
-t = linspace(0, length(q)*dt, length(q));
 
 figure(1); clf; hold on;
 subplot(2, 1, 1);
@@ -60,7 +59,6 @@ resolution = 360;  % Number of points along the circle perimeter
 
 dt = 0.1; % Time step (seconds)
 [t, q, q_dot] = calculateJointTrajectories(x, y, dt);
-t = linspace(0, length(q)*dt, length(q));
 
 figure(2); clf; hold on;
 subplot(2, 1, 1);
