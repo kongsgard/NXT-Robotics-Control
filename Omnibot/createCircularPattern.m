@@ -5,7 +5,7 @@ function [ x, y ] = createCircularPattern( radius, center, resolution )
 %   The points always starts in [x(1) y(1)] = [0 0], and iterates in a
 %   counter-clockwise direction.
 
-theta = -pi/2:1/resolution:3/2*pi;
+theta = -pi/2:2*pi/resolution:3/2*pi;
 x = radius * cos(theta) + center(1);
 y = radius * sin(theta) + center(2);
 

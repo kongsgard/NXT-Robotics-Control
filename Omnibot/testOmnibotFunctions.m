@@ -25,12 +25,12 @@ end
 plot(x, y, 'LineWidth', 5); % Should plot a square from (0,0) -> (1,0) -> (1,1) -> (0,1) -> (0,0)
 
 %% Create joint trajectories to move the center of body of the robot in a _square_ pattern
-sideLength = 1;     % Square side length (meters)
-resolution = 1000;  % Number of points along each side of the square
+sideLength = 1;    % Square side length (meters)
+resolution = 100;  % Number of points along each side of the square
 [x, y] = createSquarePattern(sideLength, resolution);
 
-dt = 0.001; % Time step
-[q, q_dot] = calculateJointTrajectories(x, y, dt);
+dt = 1; % Time step (seconds)
+[t, q, q_dot] = calculateJointTrajectories(x, y, dt);
 t = linspace(0, length(q)*dt, length(q));
 
 figure(1); clf; hold on;
@@ -48,19 +48,18 @@ xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angular speed (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
 legend({'$\dot{q}_1$', '$\dot{q}_2$', '$\dot{q}_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
 
-
 %% Test [x, y] = createCircularPattern( radius, center, resolution )
 [x, y] = createCircularPattern(0.5, [0, 0.5], 1000);
 plot(x, y, 'LineWidth', 5); % Should plot a circle with a center in (0, 0.5)
 
 %% Create joint trajectories to move the center of body of the robot in a _circular_ pattern
-radius = 1;        % Circle radius (meters)
+radius = 0.5;      % Circle radius (meters)
 center = [0, 0.5]; % Center of the circle (meters)
-resolution = 5000; % Number of points along the circle perimeter
+resolution = 360;  % Number of points along the circle perimeter
 [x, y] = createCircularPattern(radius, center, resolution);
 
-dt = 0.01; % Time step
-[q, q_dot] = calculateJointTrajectories(x, y, dt);
+dt = 0.1; % Time step (seconds)
+[t, q, q_dot] = calculateJointTrajectories(x, y, dt);
 t = linspace(0, length(q)*dt, length(q));
 
 figure(2); clf; hold on;
