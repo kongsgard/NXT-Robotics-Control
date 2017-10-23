@@ -9,7 +9,7 @@ phi = zeros(1, length(v_x));
 
 q_dot = getOmnibotF(phi(1)) * [v_x; v_y; phi];
 
-q = cumsum(q_dot') * dt;
+q = (cumsum(q_dot') * dt)';
 
 t = linspace(0, length(q)*dt, length(q));
 
