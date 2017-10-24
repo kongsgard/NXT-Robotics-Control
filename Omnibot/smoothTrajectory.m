@@ -3,10 +3,11 @@ function [ t_new ] = smoothTrajectory( t, q_dot )
 %   The velocity values are actually completely unchanged, it is only the
 %   time values that are shifted according to the square root of the
 %   original time values for the time slot that is smoothened.
+%   Both the start and end of the input trajectory is smoothened.
 
 q_dot_max = 900; % Maximum motor speed (deg/s)
 t_peak_vel = 0.05; % Time to get from zero to peak velocity for the motors (s)
-t_peak_vel_index = find(t >= 0.05, 1);
+t_peak_vel_index = find(t >= t_peak_vel, 1);
 q_peak_vel = q_dot(:, t_peak_vel_index);
 
 % Find initial points, which need new "time stamps"
@@ -20,6 +21,12 @@ t_shift = t(fi_shift) + (t_peak_vel - t_last);
 
 % The new time points include both sets, defined above
 t_new = [t_scale, t_shift];  % Just redefine the time points
+
+% Smooth end in the same way as above
+fi_scale = find(t >= t(end) - t_peak_vel);
+dt_last = t_new(end) - t_new(fi_scale(1));
+dt_scale = t_peak_vel - t_peak_vel * sqrt((t_new(end)-t_new(fi_scale))./dt_last);
+t_new(fi_scale) = t_new(fi_scale(1)) + dt_scale;
 
 end
 
