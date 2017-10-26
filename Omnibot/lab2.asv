@@ -1,0 +1,12 @@
+%% Simulink parameters
+Ts = 0.05;
+theta = 0; % Don't rotate the robot
+Ts_traj = 0.01 
+
+%% Square trajectory
+sideLength = 1;    % Square side length (meters)
+resolution = 1000;  % Number of points along each side of the square
+[x, y] = createSquarePattern(sideLength, resolution);
+
+dt = 0.01; % Time step (seconds)
+[t, q, q_dot] = calculateJointTrajectories(x, y, dt);

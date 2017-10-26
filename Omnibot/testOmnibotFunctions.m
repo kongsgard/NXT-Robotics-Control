@@ -41,7 +41,7 @@ ylabel('Angles (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
 legend({'$q_1$', '$q_2$', '$q_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
 
 subplot(2, 1, 2);
-plot(t, q_dot);
+plot(smooth(q_dot, 20));
 title('Velocities, $\dot{q}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angular speed (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
