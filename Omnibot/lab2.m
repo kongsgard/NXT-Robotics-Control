@@ -1,7 +1,9 @@
 %% Simulink parameters
-Ts = 0.05;
+Kp = 10;
+Kd = 1;
+Ts = 0.005;
 theta = 0; % Don't rotate the robot
-Ts_traj = 0.01;
+Ts_traj = 0.3;
 
 % DT lowpass filter
 tau = 0.05;                                        % test BOTH 0. 0 5 AND 0. 1 0 seconds
@@ -10,11 +12,11 @@ dttf = c2d(cttf, Ts, 'tustin');                    % create the DT lowpass filte
 
 %% Square trajectory
 sideLength = 1;    % Square side length (meters)
-resolution = 100; % Number of points along each side of the square
+resolution = 25; % Number of points along each side of the square
 [x, y] = createSquarePattern(sideLength, resolution);
 
 dt = 0.01; % Time step (seconds)
-[t, q, q_dot] = calculateJointTrajectories(x, y, dt);
+[t, q, q_dot] = calculateJointTrajectories(x, y, Ts);
 
 traj_A = q(1, :);
 traj_dA = q_dot(1, :);
