@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.36
+ * Model version                  : 1.37
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 20:42:06 2017
+ * C/C++ source code generated on : Wed Oct 25 21:17:53 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -35,8 +35,8 @@ RT_MODEL_Lab2a_template_T *const Lab2a_template_M = &Lab2a_template_M_;
  *    '<Root>/traj generation1'
  *    '<Root>/traj generation2'
  */
-void Lab2a_template_trajgeneration(const real_T rtu_traj_in[100], const real_T
-  rtu_dtraj_in[100], real_T rtu_t_in, real_T rtu_Ts_traj,
+void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const real_T
+  rtu_dtraj_in[101], real_T rtu_t_in, real_T rtu_Ts_traj,
   B_trajgeneration_Lab2a_templa_T *localB)
 {
   real_T index_fraction;
@@ -60,7 +60,7 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[100], const real_T
     index_fraction = 0.0;
   }
 
-  index_fraction = 100.0 / (rtu_Ts_traj * 100.0) * index_fraction + 1.0;
+  index_fraction = 101.0 / (rtu_Ts_traj * 101.0) * index_fraction + 1.0;
 
   /* '<S8>:1:13' */
   b_index = floor(index_fraction);
@@ -70,7 +70,7 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[100], const real_T
 
   /*  additional amount "beyond" index */
   /* Extract the current position from the trajectory (plus interp) */
-  if (b_index < 100.0) {
+  if (b_index < 101.0) {
     /* '<S8>:1:16' */
     /* '<S8>:1:18' */
     localB->ref_cur = rtu_traj_in[(int32_T)(b_index + 1.0) - 1] * index_fraction
@@ -83,10 +83,10 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[100], const real_T
   } else {
     /* If we run out of data, continue outputting the last value */
     /* '<S8>:1:25' */
-    localB->ref_cur = rtu_traj_in[99];
+    localB->ref_cur = rtu_traj_in[100];
 
     /* '<S8>:1:26' */
-    localB->ref_dcur = rtu_dtraj_in[99];
+    localB->ref_dcur = rtu_dtraj_in[100];
   }
 
   /* '<S8>:1:28' */
@@ -429,10 +429,10 @@ void Lab2a_template_initialize(void)
   Lab2a_template_M->Timing.stepSize0 = 0.005;
 
   /* External mode info */
-  Lab2a_template_M->Sizes.checksums[0] = (4066698827U);
-  Lab2a_template_M->Sizes.checksums[1] = (3654309783U);
-  Lab2a_template_M->Sizes.checksums[2] = (3003676189U);
-  Lab2a_template_M->Sizes.checksums[3] = (929376589U);
+  Lab2a_template_M->Sizes.checksums[0] = (245606853U);
+  Lab2a_template_M->Sizes.checksums[1] = (2395247321U);
+  Lab2a_template_M->Sizes.checksums[2] = (61851849U);
+  Lab2a_template_M->Sizes.checksums[3] = (2516897216U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

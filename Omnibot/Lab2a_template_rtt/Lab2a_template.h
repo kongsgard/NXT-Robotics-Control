@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.36
+ * Model version                  : 1.37
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 20:42:06 2017
+ * C/C++ source code generated on : Wed Oct 25 21:17:53 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -165,22 +165,22 @@ struct P_Lab2a_template_T_ {
   real_T Ts_traj;                      /* Variable: Ts_traj
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T traj_A[100];                  /* Variable: traj_A
+  real_T traj_A[101];                  /* Variable: traj_A
                                         * Referenced by: '<Root>/Constant1'
                                         */
-  real_T traj_B[100];                  /* Variable: traj_B
+  real_T traj_B[101];                  /* Variable: traj_B
                                         * Referenced by: '<Root>/Constant4'
                                         */
-  real_T traj_C[100];                  /* Variable: traj_C
+  real_T traj_C[101];                  /* Variable: traj_C
                                         * Referenced by: '<Root>/Constant7'
                                         */
-  real_T traj_dA[100];                 /* Variable: traj_dA
+  real_T traj_dA[101];                 /* Variable: traj_dA
                                         * Referenced by: '<Root>/Constant2'
                                         */
-  real_T traj_dB[100];                 /* Variable: traj_dB
+  real_T traj_dB[101];                 /* Variable: traj_dB
                                         * Referenced by: '<Root>/Constant5'
                                         */
-  real_T traj_dC[100];                 /* Variable: traj_dC
+  real_T traj_dC[101];                 /* Variable: traj_dC
                                         * Referenced by: '<Root>/Constant8'
                                         */
   real_T OffReset_Value;               /* Expression: 0

@@ -14,9 +14,8 @@ dttf = c2d(cttf, Ts, 'tustin');                    % create the DT lowpass filte
 sideLength = 1;    % Square side length (meters)
 resolution = 25; % Number of points along each side of the square
 [x, y] = createSquarePattern(sideLength, resolution);
-x = (smooth(x, 20))';
-y = (smooth(y, 20))';
 
+dt = 0.01; % Time step (seconds)
 [t, q, q_dot] = calculateJointTrajectories(x, y, Ts);
 
 traj_A = q(1, :);
@@ -26,17 +25,17 @@ traj_dB = q_dot(2, :);
 traj_C = q(3, :);
 traj_dC = q_dot(3, :);
 
-%% Circular trajectory
-radius = 0.5;      % Circle radius (meters)
-center = [0, 0.5]; % Center of the circle (meters)
-resolution = 100;  % Number of points along the circle perimeter
-[x, y] = createCircularPattern(radius, center, resolution);
+figure(1); clf; hold on;
+subplot(2, 1, 1);
+plot(t, q);
+title('Trajectories, $q$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angles (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'$q_1$', '$q_2$', '$q_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
 
-[t, q, q_dot] = calculateJointTrajectories(x, y, Ts);
-
-traj_A = q(1, :);
-traj_dA = q_dot(1, :);
-traj_B = q(2, :);
-traj_dB = q_dot(2, :);
-traj_C = q(3, :);
-traj_dC = q_dot(3, :);
+subplot(2, 1, 2);
+plot(smooth(q_dot, 20);
+title('Velocities, $\dot{q}$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angular speed (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'$\dot{q}_1$', '$\dot{q}_2$', '$\dot{q}_3$'}, 'FontSize', 20, 'Interpreter', 'Latex');
