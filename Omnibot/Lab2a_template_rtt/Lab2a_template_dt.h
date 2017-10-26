@@ -5,7 +5,7 @@
  *
  * Model version              : 1.37
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Wed Oct 25 21:17:53 2017
+ * C source code generated on : Wed Oct 25 21:42:34 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -75,7 +75,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&Lab2a_template_P.Kd), 0, 0, 632 },
+  { (char_T *)(&Lab2a_template_P.Kd), 0, 0, 626 },
 
   { (char_T *)(&Lab2a_template_P.timeresetswitch_CurrentSetting), 3, 0, 1 }
 };

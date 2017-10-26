@@ -27,6 +27,7 @@ traj_C = q(3, :);
 traj_dC = q_dot(3, :);
 
 %% Circular trajectory
+%{
 radius = 0.5;      % Circle radius (meters)
 center = [0, 0.5]; % Center of the circle (meters)
 resolution = 100;  % Number of points along the circle perimeter
@@ -40,3 +41,4 @@ traj_B = q(2, :);
 traj_dB = q_dot(2, :);
 traj_C = q(3, :);
 traj_dC = q_dot(3, :);
+%}
