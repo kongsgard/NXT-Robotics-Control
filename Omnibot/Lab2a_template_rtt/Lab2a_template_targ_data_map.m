@@ -363,56 +363,60 @@
       dworkMap.sections(1) = section;
       clear section
       
-      section.nData     = 12;
-      section.data(12)  = dumData; %prealloc
+      section.nData     = 13;
+      section.data(13)  = dumData; %prealloc
       
-	  ;% Lab2a_template_DW.ToWorkspace_PWORK.LoggedData
+	  ;% Lab2a_template_DW.Scope_PWORK.LoggedData
 	  section.data(1).logicalSrcIdx = 5;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% Lab2a_template_DW.ToWorkspace1_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace_PWORK.LoggedData
 	  section.data(2).logicalSrcIdx = 6;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% Lab2a_template_DW.ToWorkspace3_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace1_PWORK.LoggedData
 	  section.data(3).logicalSrcIdx = 7;
 	  section.data(3).dtTransOffset = 2;
 	
-	  ;% Lab2a_template_DW.ToWorkspace4_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace3_PWORK.LoggedData
 	  section.data(4).logicalSrcIdx = 8;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% Lab2a_template_DW.ToWorkspace6_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace4_PWORK.LoggedData
 	  section.data(5).logicalSrcIdx = 9;
 	  section.data(5).dtTransOffset = 4;
 	
-	  ;% Lab2a_template_DW.ToWorkspace7_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace6_PWORK.LoggedData
 	  section.data(6).logicalSrcIdx = 10;
 	  section.data(6).dtTransOffset = 5;
 	
-	  ;% Lab2a_template_DW.ToWorkspace9_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace7_PWORK.LoggedData
 	  section.data(7).logicalSrcIdx = 11;
 	  section.data(7).dtTransOffset = 6;
 	
-	  ;% Lab2a_template_DW.ToWorkspace2_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace9_PWORK.LoggedData
 	  section.data(8).logicalSrcIdx = 12;
 	  section.data(8).dtTransOffset = 7;
 	
-	  ;% Lab2a_template_DW.ToWorkspace10_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace2_PWORK.LoggedData
 	  section.data(9).logicalSrcIdx = 13;
 	  section.data(9).dtTransOffset = 8;
 	
-	  ;% Lab2a_template_DW.ToWorkspace5_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace10_PWORK.LoggedData
 	  section.data(10).logicalSrcIdx = 14;
 	  section.data(10).dtTransOffset = 9;
 	
-	  ;% Lab2a_template_DW.ToWorkspace11_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace5_PWORK.LoggedData
 	  section.data(11).logicalSrcIdx = 15;
 	  section.data(11).dtTransOffset = 10;
 	
-	  ;% Lab2a_template_DW.ToWorkspace8_PWORK.LoggedData
+	  ;% Lab2a_template_DW.ToWorkspace11_PWORK.LoggedData
 	  section.data(12).logicalSrcIdx = 16;
 	  section.data(12).dtTransOffset = 11;
+	
+	  ;% Lab2a_template_DW.ToWorkspace8_PWORK.LoggedData
+	  section.data(13).logicalSrcIdx = 17;
+	  section.data(13).dtTransOffset = 12;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(2) = section;
@@ -444,8 +448,8 @@
   ;%
 
 
-  targMap.checksum0 = 4066698827;
-  targMap.checksum1 = 3654309783;
-  targMap.checksum2 = 3003676189;
-  targMap.checksum3 = 929376589;
+  targMap.checksum0 = 432223386;
+  targMap.checksum1 = 1981049886;
+  targMap.checksum2 = 1322859163;
+  targMap.checksum3 = 354420561;
 

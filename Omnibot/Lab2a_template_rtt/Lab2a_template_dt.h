@@ -3,9 +3,9 @@
  *
  * Code generation for model "Lab2a_template".
  *
- * Model version              : 1.37
+ * Model version              : 1.38
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Wed Oct 25 21:42:34 2017
+ * C source code generated on : Wed Oct 25 22:09:06 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -64,7 +64,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&Lab2a_template_DW.Internal_DSTATE), 0, 0, 5 },
 
-  { (char_T *)(&Lab2a_template_DW.ToWorkspace_PWORK.LoggedData), 11, 0, 12 }
+  { (char_T *)(&Lab2a_template_DW.Scope_PWORK.LoggedData), 11, 0, 13 }
 };
 
 /* data type transition table for block I/O structure */

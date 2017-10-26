@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.37
+ * Model version                  : 1.38
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 21:42:34 2017
+ * C/C++ source code generated on : Wed Oct 25 22:09:06 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -19,19 +19,19 @@
 
 /* Block parameters (auto storage) */
 P_Lab2a_template_T Lab2a_template_P = {
-  1.0,                                 /* Variable: Kd
+  0.1,                                 /* Variable: Kd
                                         * Referenced by:
                                         *   '<S4>/Gain1'
                                         *   '<S5>/Gain1'
                                         *   '<S6>/Gain1'
                                         */
-  10.0,                                /* Variable: Kp
+  5.0,                                 /* Variable: Kp
                                         * Referenced by:
                                         *   '<S4>/Gain'
                                         *   '<S5>/Gain'
                                         *   '<S6>/Gain'
                                         */
-  0.3,                                 /* Variable: Ts_traj
+  0.5,                                 /* Variable: Ts_traj
                                         * Referenced by: '<Root>/Constant'
                                         */
 

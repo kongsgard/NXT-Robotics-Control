@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.37
+ * Model version                  : 1.38
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 21:42:34 2017
+ * C/C++ source code generated on : Wed Oct 25 22:09:06 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -99,6 +99,10 @@ typedef struct {
   real_T Internal_DSTATE_j;            /* '<S13>/Internal' */
   real_T t_off;                        /* '<Root>/timer w// reset' */
   real_T last_rst;                     /* '<Root>/timer w// reset' */
+  struct {
+    void *LoggedData;
+  } Scope_PWORK;                       /* '<Root>/Scope' */
+
   struct {
     void *LoggedData;
   } ToWorkspace_PWORK;                 /* '<Root>/To Workspace' */

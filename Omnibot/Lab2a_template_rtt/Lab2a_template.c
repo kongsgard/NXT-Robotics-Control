@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.37
+ * Model version                  : 1.38
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 21:42:34 2017
+ * C/C++ source code generated on : Wed Oct 25 22:09:06 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -159,6 +159,17 @@ void Lab2a_template_output(void)
     Lab2a_template_P.traj_dA, rtb_clk, Lab2a_template_P.Ts_traj,
     &Lab2a_template_B.sf_trajgeneration);
 
+  /* S-Function (nxt_encoder): '<S1>/Encoder' */
+  rtb_Encoder2_0 = getEncoderValueNoReset(1U);
+
+  /* DataTypeConversion: '<S1>/Data Type Conversion1' incorporates:
+   *  S-Function (nxt_encoder): '<S1>/Encoder'
+   */
+  rtb_Sum1 = rtb_Encoder2_0;
+
+  /* Gain: '<S1>/Gain' */
+  Lab2a_template_B.Gain = Lab2a_template_P.Gain_Gain * rtb_Sum1;
+
   /* MATLAB Function: '<Root>/traj generation1' incorporates:
    *  Constant: '<Root>/Constant'
    *  Constant: '<Root>/Constant4'
@@ -176,17 +187,6 @@ void Lab2a_template_output(void)
   Lab2a_template_trajgeneration(Lab2a_template_P.traj_C,
     Lab2a_template_P.traj_dC, rtb_clk, Lab2a_template_P.Ts_traj,
     &Lab2a_template_B.sf_trajgeneration2);
-
-  /* S-Function (nxt_encoder): '<S1>/Encoder' */
-  rtb_Encoder2_0 = getEncoderValueNoReset(1U);
-
-  /* DataTypeConversion: '<S1>/Data Type Conversion1' incorporates:
-   *  S-Function (nxt_encoder): '<S1>/Encoder'
-   */
-  rtb_Sum1 = rtb_Encoder2_0;
-
-  /* Gain: '<S1>/Gain' */
-  Lab2a_template_B.Gain = Lab2a_template_P.Gain_Gain * rtb_Sum1;
 
   /* Sum: '<S4>/Sum3' */
   rtb_Sum3 = Lab2a_template_B.sf_trajgeneration.ref_cur - Lab2a_template_B.Gain;
@@ -429,10 +429,10 @@ void Lab2a_template_initialize(void)
   Lab2a_template_M->Timing.stepSize0 = 0.005;
 
   /* External mode info */
-  Lab2a_template_M->Sizes.checksums[0] = (4066698827U);
-  Lab2a_template_M->Sizes.checksums[1] = (3654309783U);
-  Lab2a_template_M->Sizes.checksums[2] = (3003676189U);
-  Lab2a_template_M->Sizes.checksums[3] = (929376589U);
+  Lab2a_template_M->Sizes.checksums[0] = (432223386U);
+  Lab2a_template_M->Sizes.checksums[1] = (1981049886U);
+  Lab2a_template_M->Sizes.checksums[2] = (1322859163U);
+  Lab2a_template_M->Sizes.checksums[3] = (354420561U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

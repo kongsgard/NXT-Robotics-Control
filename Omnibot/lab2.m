@@ -1,9 +1,9 @@
 %% Simulink parameters
-Kp = 10;
-Kd = 1;
+Kp = 5;
+Kd = 0.1;
 Ts = 0.005;
 theta = 0; % Don't rotate the robot
-Ts_traj = 0.3;
+Ts_traj = 0.5;
 
 % DT lowpass filter
 tau = 0.05;                                        % test BOTH 0. 0 5 AND 0. 1 0 seconds
