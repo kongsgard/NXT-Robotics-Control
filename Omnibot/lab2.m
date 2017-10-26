@@ -17,8 +17,8 @@ dt = 0.01; % Time step (seconds)
 [t, q, q_dot] = calculateJointTrajectories(x, y, dt);
 
 traj_A = q(1, :);
-dtraj_A = q_dot(1, :);
+traj_dA = q_dot(1, :);
 traj_B = q(2, :);
-dtraj_B = q_dot(2, :);
+traj_dB = q_dot(2, :);
 traj_C = q(3, :);
-dtraj_C = q_dot(3, :);
+traj_dC = q_dot(3, :);
