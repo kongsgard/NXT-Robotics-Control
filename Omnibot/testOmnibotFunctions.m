@@ -94,9 +94,6 @@ t_shift = t(fi_shift) + (t_peak_vel - t_last);
 % The new time points include both sets, defined above
 t_new = [t_scale, t_shift];  % Just redefine the time points
 
-%% Smoothen velocities using smoothTrajectory( t, q_dot )
-t_new = smoothTrajectory(t, q_dot);
-
 % Plot the differences before and after smoothing
 figure(3); clf; hold on;
 plot( t(1:length(t_scale)), q_dot(1, 1:length(t_scale)) );
@@ -105,4 +102,11 @@ title('Velocities, $\dot{q}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angular speed (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
 legend({'$\dot{q}_1$ (without smoothing)', '$\dot{q}_1$ (with smoothing)'}, 'FontSize', 20, 'Interpreter', 'Latex');
+
+%% Smoothen velocities using smoothTrajectory( t, q_dot )
+t_new = smoothTrajectory(t, q_dot);
+
+% For the square trajectory, smooth one 'side' at a time with this function
+% For the circular trajectory, the movement is smooth, so only the initial
+% jump in velocity will need to be smoothened.
 
