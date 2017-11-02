@@ -4,7 +4,7 @@ function [ F ] = getOmnibotF( phi_b )
 %   velocities to required joint velocities
 
 rw = 0.032;             % (meters)
-L  = 0.146;             % (meters) 
+L  = 0.09;             % (meters) 
 a  = (2*pi/3)*[-1 0 1]; % alpha angles, of wheels, wrt body frame
 
 F_11 = sin(phi_b + a(1)) / rw;
@@ -19,7 +19,7 @@ F_33 = -L / rw;
 
 F = [ F_11 F_12 F_13;
       F_21 F_22 F_23;
-      F_31 F_32 F_33; ];
+      F_31 F_32 F_33 ];
 
 end
 

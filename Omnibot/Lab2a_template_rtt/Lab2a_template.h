@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.37
+ * Model version                  : 1.38
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Nov 01 20:25:49 2017
+ * C/C++ source code generated on : Wed Nov 01 21:48:52 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -80,12 +80,12 @@ typedef struct {
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T timeresetswitch;              /* '<Root>/time reset switch' */
   real_T Gain;                         /* '<S1>/Gain' */
-  real_T Saturation;                   /* '<S1>/Saturation' */
+  real_T timeresetswitch;              /* '<Root>/time reset switch' */
   real_T Gain1;                        /* '<S2>/Gain1' */
-  real_T Saturation1;                  /* '<S2>/Saturation1' */
   real_T Gain2;                        /* '<S3>/Gain2' */
+  real_T Saturation;                   /* '<S1>/Saturation' */
+  real_T Saturation1;                  /* '<S2>/Saturation1' */
   real_T Saturation2;                  /* '<S3>/Saturation2' */
   B_trajgeneration_Lab2a_templa_T sf_trajgeneration2;/* '<Root>/traj generation2' */
   B_trajgeneration_Lab2a_templa_T sf_trajgeneration1;/* '<Root>/traj generation1' */
@@ -99,6 +99,10 @@ typedef struct {
   real_T Internal_DSTATE_j;            /* '<S13>/Internal' */
   real_T t_off;                        /* '<Root>/timer w// reset' */
   real_T last_rst;                     /* '<Root>/timer w// reset' */
+  struct {
+    void *LoggedData;
+  } Scope_PWORK;                       /* '<Root>/Scope' */
+
   struct {
     void *LoggedData;
   } ToWorkspace_PWORK;                 /* '<Root>/To Workspace' */
@@ -165,23 +169,26 @@ struct P_Lab2a_template_T_ {
   real_T Ts_traj;                      /* Variable: Ts_traj
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T traj_A[101];                  /* Variable: traj_A
+  real_T traj_A[67];                   /* Variable: traj_A
                                         * Referenced by: '<Root>/Constant1'
                                         */
-  real_T traj_B[101];                  /* Variable: traj_B
+  real_T traj_B[67];                   /* Variable: traj_B
                                         * Referenced by: '<Root>/Constant4'
                                         */
-  real_T traj_C[101];                  /* Variable: traj_C
+  real_T traj_C[67];                   /* Variable: traj_C
                                         * Referenced by: '<Root>/Constant7'
                                         */
-  real_T traj_dA[101];                 /* Variable: traj_dA
+  real_T traj_dA[67];                  /* Variable: traj_dA
                                         * Referenced by: '<Root>/Constant2'
                                         */
-  real_T traj_dB[101];                 /* Variable: traj_dB
+  real_T traj_dB[67];                  /* Variable: traj_dB
                                         * Referenced by: '<Root>/Constant5'
                                         */
-  real_T traj_dC[101];                 /* Variable: traj_dC
+  real_T traj_dC[67];                  /* Variable: traj_dC
                                         * Referenced by: '<Root>/Constant8'
+                                        */
+  real_T Gain_Gain;                    /* Expression: pi/180
+                                        * Referenced by: '<S1>/Gain'
                                         */
   real_T OffReset_Value;               /* Expression: 0
                                         * Referenced by: '<Root>/Off//Reset'
@@ -189,8 +196,11 @@ struct P_Lab2a_template_T_ {
   real_T On_Value;                     /* Expression: 1
                                         * Referenced by: '<Root>/On'
                                         */
-  real_T Gain_Gain;                    /* Expression: pi/180
-                                        * Referenced by: '<S1>/Gain'
+  real_T Gain1_Gain;                   /* Expression: pi/180
+                                        * Referenced by: '<S2>/Gain1'
+                                        */
+  real_T Gain2_Gain;                   /* Expression: pi/180
+                                        * Referenced by: '<S3>/Gain2'
                                         */
   real_T Internal_A;                   /* Computed Parameter: Internal_A
                                         * Referenced by: '<S11>/Internal'
@@ -210,9 +220,6 @@ struct P_Lab2a_template_T_ {
   real_T Saturation_LowerSat;          /* Expression: -100
                                         * Referenced by: '<S1>/Saturation'
                                         */
-  real_T Gain1_Gain;                   /* Expression: pi/180
-                                        * Referenced by: '<S2>/Gain1'
-                                        */
   real_T Internal_A_j;                 /* Computed Parameter: Internal_A_j
                                         * Referenced by: '<S12>/Internal'
                                         */
@@ -230,9 +237,6 @@ struct P_Lab2a_template_T_ {
                                         */
   real_T Saturation1_LowerSat;         /* Expression: -100
                                         * Referenced by: '<S2>/Saturation1'
-                                        */
-  real_T Gain2_Gain;                   /* Expression: pi/180
-                                        * Referenced by: '<S3>/Gain2'
                                         */
   real_T Internal_A_l;                 /* Computed Parameter: Internal_A_l
                                         * Referenced by: '<S13>/Internal'

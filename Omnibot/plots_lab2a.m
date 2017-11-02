@@ -2,7 +2,7 @@
 %% Plot 1
 % Square trajectory: Encoder data for the three motors along with the reference trajectories in a single subplot.
 
-load('mat-files/plot1.mat');
+ % load('mat-files/plot1.mat');
 
 figure(1); clf;
 subplot(3, 1, 1); hold on;

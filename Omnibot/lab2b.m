@@ -1,5 +1,5 @@
 %% This script is a template for generating an elliptical trajectory
-
+clear all
 % Define the sampling time of the trajectory
 Ts_traj = 0.3;
 t_max = 20;
@@ -7,9 +7,9 @@ t = 0:Ts_traj:t_max;
 N = length(t);
 
 % Controller parameters
-Kp = 10;
+Kp = 9;
 Kd = 1;
-Ts = Ts_traj;
+Ts = 0.005;
 
 % DT lowpass filter
 tau = 0.05;                                        % test BOTH 0. 0 5 AND 0. 1 0 seconds
@@ -121,7 +121,7 @@ ylabel('Angle (rad/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 %% Next use your code from lab 2A to generate joint angle trajectories, 
 %noting that the jacobian is NOT constant in this case..
-[t, q, q_dot] = calculateJointTrajectoriesImproved(x, y, Ts_traj);
+[t, q, q_dot] = calculateJointTrajectoriesImproved(x, y, phi, Ts_traj);
 
 traj_A = q(1, :);
 traj_dA = q_dot(1, :);

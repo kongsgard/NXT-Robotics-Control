@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.37
+ * Model version                  : 1.38
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Nov 01 20:25:49 2017
+ * C/C++ source code generated on : Wed Nov 01 21:48:52 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -35,8 +35,8 @@ RT_MODEL_Lab2a_template_T *const Lab2a_template_M = &Lab2a_template_M_;
  *    '<Root>/traj generation1'
  *    '<Root>/traj generation2'
  */
-void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const real_T
-  rtu_dtraj_in[101], real_T rtu_t_in, real_T rtu_Ts_traj,
+void Lab2a_template_trajgeneration(const real_T rtu_traj_in[67], const real_T
+  rtu_dtraj_in[67], real_T rtu_t_in, real_T rtu_Ts_traj,
   B_trajgeneration_Lab2a_templa_T *localB)
 {
   real_T index_fraction;
@@ -60,7 +60,7 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const real_T
     index_fraction = 0.0;
   }
 
-  index_fraction = 101.0 / (rtu_Ts_traj * 101.0) * index_fraction + 1.0;
+  index_fraction = 67.0 / (rtu_Ts_traj * 67.0) * index_fraction + 1.0;
 
   /* '<S8>:1:13' */
   b_index = floor(index_fraction);
@@ -70,7 +70,7 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const real_T
 
   /*  additional amount "beyond" index */
   /* Extract the current position from the trajectory (plus interp) */
-  if (b_index < 101.0) {
+  if (b_index < 67.0) {
     /* '<S8>:1:16' */
     /* '<S8>:1:18' */
     localB->ref_cur = rtu_traj_in[(int32_T)(b_index + 1.0) - 1] * index_fraction
@@ -83,10 +83,10 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const real_T
   } else {
     /* If we run out of data, continue outputting the last value */
     /* '<S8>:1:25' */
-    localB->ref_cur = rtu_traj_in[100];
+    localB->ref_cur = rtu_traj_in[66];
 
     /* '<S8>:1:26' */
-    localB->ref_dcur = rtu_dtraj_in[100];
+    localB->ref_dcur = rtu_dtraj_in[66];
   }
 
   /* '<S8>:1:28' */
@@ -105,6 +105,17 @@ void Lab2a_template_output(void)
   int8_T tmp_0;
   int8_T tmp_1;
   real_T rtb_Sum3;
+
+  /* S-Function (nxt_encoder): '<S1>/Encoder' */
+  rtb_Encoder2_0 = getEncoderValueNoReset(1U);
+
+  /* DataTypeConversion: '<S1>/Data Type Conversion1' incorporates:
+   *  S-Function (nxt_encoder): '<S1>/Encoder'
+   */
+  rtb_Sum1 = rtb_Encoder2_0;
+
+  /* Gain: '<S1>/Gain' */
+  Lab2a_template_B.Gain = Lab2a_template_P.Gain_Gain * rtb_Sum1;
 
   /* Clock: '<Root>/Clock' */
   rtb_Clock = Lab2a_template_M->Timing.t[0];
@@ -159,6 +170,17 @@ void Lab2a_template_output(void)
     Lab2a_template_P.traj_dA, rtb_clk, Lab2a_template_P.Ts_traj,
     &Lab2a_template_B.sf_trajgeneration);
 
+  /* S-Function (nxt_encoder): '<S2>/Encoder1' */
+  rtb_Encoder2_0 = getEncoderValueNoReset(2U);
+
+  /* DataTypeConversion: '<S2>/Data Type Conversion3' incorporates:
+   *  S-Function (nxt_encoder): '<S2>/Encoder1'
+   */
+  rtb_Sum1 = rtb_Encoder2_0;
+
+  /* Gain: '<S2>/Gain1' */
+  Lab2a_template_B.Gain1 = Lab2a_template_P.Gain1_Gain * rtb_Sum1;
+
   /* MATLAB Function: '<Root>/traj generation1' incorporates:
    *  Constant: '<Root>/Constant'
    *  Constant: '<Root>/Constant4'
@@ -168,6 +190,17 @@ void Lab2a_template_output(void)
     Lab2a_template_P.traj_dB, rtb_clk, Lab2a_template_P.Ts_traj,
     &Lab2a_template_B.sf_trajgeneration1);
 
+  /* S-Function (nxt_encoder): '<S3>/Encoder2' */
+  rtb_Encoder2_0 = getEncoderValueNoReset(3U);
+
+  /* DataTypeConversion: '<S3>/Data Type Conversion5' incorporates:
+   *  S-Function (nxt_encoder): '<S3>/Encoder2'
+   */
+  rtb_Sum1 = rtb_Encoder2_0;
+
+  /* Gain: '<S3>/Gain2' */
+  Lab2a_template_B.Gain2 = Lab2a_template_P.Gain2_Gain * rtb_Sum1;
+
   /* MATLAB Function: '<Root>/traj generation2' incorporates:
    *  Constant: '<Root>/Constant'
    *  Constant: '<Root>/Constant7'
@@ -176,17 +209,6 @@ void Lab2a_template_output(void)
   Lab2a_template_trajgeneration(Lab2a_template_P.traj_C,
     Lab2a_template_P.traj_dC, rtb_clk, Lab2a_template_P.Ts_traj,
     &Lab2a_template_B.sf_trajgeneration2);
-
-  /* S-Function (nxt_encoder): '<S1>/Encoder' */
-  rtb_Encoder2_0 = getEncoderValueNoReset(1U);
-
-  /* DataTypeConversion: '<S1>/Data Type Conversion1' incorporates:
-   *  S-Function (nxt_encoder): '<S1>/Encoder'
-   */
-  rtb_Sum1 = rtb_Encoder2_0;
-
-  /* Gain: '<S1>/Gain' */
-  Lab2a_template_B.Gain = Lab2a_template_P.Gain_Gain * rtb_Sum1;
 
   /* Sum: '<S4>/Sum3' */
   rtb_Sum3 = Lab2a_template_B.sf_trajgeneration.ref_cur - Lab2a_template_B.Gain;
@@ -230,17 +252,6 @@ void Lab2a_template_output(void)
   tmp = (int8_T)(rtb_Sum3 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-rtb_Sum3 :
                  (int32_T)(int8_T)(uint8_T)rtb_Sum3);
   setMotor(&tmp, 1U, 2U);
-
-  /* S-Function (nxt_encoder): '<S2>/Encoder1' */
-  rtb_Encoder2_0 = getEncoderValueNoReset(2U);
-
-  /* DataTypeConversion: '<S2>/Data Type Conversion3' incorporates:
-   *  S-Function (nxt_encoder): '<S2>/Encoder1'
-   */
-  rtb_Sum1 = rtb_Encoder2_0;
-
-  /* Gain: '<S2>/Gain1' */
-  Lab2a_template_B.Gain1 = Lab2a_template_P.Gain1_Gain * rtb_Sum1;
 
   /* Sum: '<S5>/Sum3' */
   rtb_Sum3 = Lab2a_template_B.sf_trajgeneration1.ref_cur -
@@ -286,17 +297,6 @@ void Lab2a_template_output(void)
   tmp_0 = (int8_T)(rtb_Sum3 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-rtb_Sum3
                    : (int32_T)(int8_T)(uint8_T)rtb_Sum3);
   setMotor(&tmp_0, 2U, 2U);
-
-  /* S-Function (nxt_encoder): '<S3>/Encoder2' */
-  rtb_Encoder2_0 = getEncoderValueNoReset(3U);
-
-  /* DataTypeConversion: '<S3>/Data Type Conversion5' incorporates:
-   *  S-Function (nxt_encoder): '<S3>/Encoder2'
-   */
-  rtb_Sum1 = rtb_Encoder2_0;
-
-  /* Gain: '<S3>/Gain2' */
-  Lab2a_template_B.Gain2 = Lab2a_template_P.Gain2_Gain * rtb_Sum1;
 
   /* Sum: '<S6>/Sum3' */
   rtb_Sum3 = Lab2a_template_B.sf_trajgeneration2.ref_cur -
@@ -429,10 +429,10 @@ void Lab2a_template_initialize(void)
   Lab2a_template_M->Timing.stepSize0 = 0.005;
 
   /* External mode info */
-  Lab2a_template_M->Sizes.checksums[0] = (245606853U);
-  Lab2a_template_M->Sizes.checksums[1] = (2395247321U);
-  Lab2a_template_M->Sizes.checksums[2] = (61851849U);
-  Lab2a_template_M->Sizes.checksums[3] = (2516897216U);
+  Lab2a_template_M->Sizes.checksums[0] = (1060512065U);
+  Lab2a_template_M->Sizes.checksums[1] = (3656994932U);
+  Lab2a_template_M->Sizes.checksums[2] = (4040778616U);
+  Lab2a_template_M->Sizes.checksums[3] = (3245472137U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

@@ -3,9 +3,9 @@
  *
  * Code generation for model "Lab2a_template".
  *
- * Model version              : 1.37
+ * Model version              : 1.38
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Wed Nov 01 20:25:49 2017
+ * C source code generated on : Wed Nov 01 21:48:52 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -53,7 +53,7 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&Lab2a_template_B.timeresetswitch), 0, 0, 7 },
+  { (char_T *)(&Lab2a_template_B.Gain), 0, 0, 7 },
 
   { (char_T *)(&Lab2a_template_B.sf_trajgeneration2.ref_cur), 0, 0, 2 },
 
@@ -64,7 +64,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&Lab2a_template_DW.Internal_DSTATE), 0, 0, 5 },
 
-  { (char_T *)(&Lab2a_template_DW.ToWorkspace_PWORK.LoggedData), 11, 0, 12 }
+  { (char_T *)(&Lab2a_template_DW.Scope_PWORK.LoggedData), 11, 0, 13 }
 };
 
 /* data type transition table for block I/O structure */
@@ -75,7 +75,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&Lab2a_template_P.Kd), 0, 0, 632 },
+  { (char_T *)(&Lab2a_template_P.Kd), 0, 0, 428 },
 
   { (char_T *)(&Lab2a_template_P.timeresetswitch_CurrentSetting), 3, 0, 1 }
 };
