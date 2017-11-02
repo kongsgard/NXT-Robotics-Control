@@ -39,15 +39,18 @@ plot(t, q(1,:));
 title('Motor A trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 20])
 
 subplot(3, 1, 2); hold on;
 plot(t, q(2,:));
 title('Motor B trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 20])
 
 subplot(3, 1, 3); hold on;
 plot(t, q(3,:));
 title('Motor C trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 20])
