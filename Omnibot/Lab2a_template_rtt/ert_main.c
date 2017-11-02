@@ -6,7 +6,7 @@
  * Model version                  : 1.37
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 21:42:34 2017
+ * C/C++ source code generated on : Wed Nov 01 20:25:49 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7

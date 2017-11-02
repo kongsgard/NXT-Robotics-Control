@@ -21,7 +21,7 @@ theta = linspace(0,pi,N);
 
 %Target location -- this is where the laser "bullseye" is
 x0 = .9144;      % 3 feet from start position, in x
-y0 = 0;          % aligned with initial axis the laser points
+y0 = 0.6196;          % aligned with initial axis the laser points
 
 %Generate the ellipse
 LongWidth =  4*12*.0254; %This is the desired ending position on the x-axis
@@ -122,3 +122,10 @@ ylabel('Angle (rad/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 %% Next use your code from lab 2A to generate joint angle trajectories, 
 %noting that the jacobian is NOT constant in this case..
 [t, q, q_dot] = calculateJointTrajectoriesImproved(x, y, Ts_traj);
+
+traj_A = q(1, :);
+traj_dA = q_dot(1, :);
+traj_B = q(2, :);
+traj_dB = q_dot(2, :);
+traj_C = q(3, :);
+traj_dC = q_dot(3, :);

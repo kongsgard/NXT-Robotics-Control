@@ -1,6 +1,6 @@
  Lab2a_template_sfun
 
- Timestamp is 59f1678b (Wed Oct 25 21:41:47 2017)
+ Timestamp is 59fa903b (Wed Nov 01 20:25:47 2017)
 
  Preferred load address is 0000000180000000
 
@@ -30,8 +30,8 @@
 
   Address         Publics by Value              Rva+Base               Lib:Object
 
- 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
  0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000000       Lab2a_template_initializer 0000000180001000 f   Lab2a_template_sfun.obj
  0001:00000010       Lab2a_template_terminator  0000000180001010 f   Lab2a_template_sfun.obj
@@ -435,10 +435,10 @@
  0002:00000468       __xc_z                     0000000180024468     MSVCRT:cinitexe.obj
  0002:00000470       __xi_a                     0000000180024470     MSVCRT:cinitexe.obj
  0002:00000480       __xi_z                     0000000180024480     MSVCRT:cinitexe.obj
- 0002:00000490       __real@41c5ae17de000000    0000000180024490     Lab2a_template_sfun.obj
- 0002:00000498       __real@41ed718575000000    0000000180024498     Lab2a_template_sfun.obj
- 0002:000004a0       __real@41c8c42106800000    00000001800244a0     Lab2a_template_sfun.obj
- 0002:000004a8       __real@4175bc3320000000    00000001800244a8     Lab2a_template_sfun.obj
+ 0002:00000490       __real@41eedd4f35200000    0000000180024490     Lab2a_template_sfun.obj
+ 0002:00000498       __real@41b65f7fa4000000    0000000180024498     Lab2a_template_sfun.obj
+ 0002:000004a0       __real@41e81c0e0f400000    00000001800244a0     Lab2a_template_sfun.obj
+ 0002:000004a8       __real@41e698f14f000000    00000001800244a8     Lab2a_template_sfun.obj
  0002:000004b0       __real@41ad4b2baa000000    00000001800244b0     Lab2a_template_sfun.obj
  0002:000004b8       __real@41e4f54984000000    00000001800244b8     Lab2a_template_sfun.obj
  0002:000004c0       __real@41e2ce78c3a00000    00000001800244c0     Lab2a_template_sfun.obj
@@ -451,13 +451,13 @@
  0002:000004f8       __real@41e9496d87a00000    00000001800244f8     Lab2a_template_sfun.obj
  0002:00000500       __real@41e4fb7f88600000    0000000180024500     Lab2a_template_sfun.obj
  0002:00000508       __real@41e0828afae00000    0000000180024508     Lab2a_template_sfun.obj
- 0002:00000510       __real@41e865f347800000    0000000180024510     c1_Lab2a_template.obj
- 0002:00000518       __real@41deaf886d000000    0000000180024518     c1_Lab2a_template.obj
- 0002:00000520       __real@41e67430e3000000    0000000180024520     c1_Lab2a_template.obj
- 0002:00000528       __real@41e72af27de00000    0000000180024528     c1_Lab2a_template.obj
+ 0002:00000510       __real@41cb3a6504800000    0000000180024510     c1_Lab2a_template.obj
+ 0002:00000518       __real@41e1e61d3fe00000    0000000180024518     c1_Lab2a_template.obj
+ 0002:00000520       __real@41bda2ba71000000    0000000180024520     c1_Lab2a_template.obj
+ 0002:00000528       __real@41ed43d623400000    0000000180024528     c1_Lab2a_template.obj
  0002:00000530       __real@4024000000000000    0000000180024530     c1_Lab2a_template.obj
  0002:00000538       __real@3ff0000000000000    0000000180024538     c1_Lab2a_template.obj
- 0002:00000540       __real@4059000000000000    0000000180024540     c1_Lab2a_template.obj
+ 0002:00000540       __real@4059400000000000    0000000180024540     c1_Lab2a_template.obj
  0002:00000548       __real@4000000000000000    0000000180024548     c1_Lab2a_template.obj
  0002:00000550       __real@4010000000000000    0000000180024550     c1_Lab2a_template.obj
  0002:00000558       __real@41e3387ab6600000    0000000180024558     c3_Lab2a_template.obj

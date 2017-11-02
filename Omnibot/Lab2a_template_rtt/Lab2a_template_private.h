@@ -6,7 +6,7 @@
  * Model version                  : 1.37
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 21:42:34 2017
+ * C/C++ source code generated on : Wed Nov 01 20:25:49 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -44,8 +44,8 @@
 #error This file requires rtwtypes.h to be included
 #endif                                 /* __RTWTYPES_H__ */
 
-extern void Lab2a_template_trajgeneration(const real_T rtu_traj_in[100], const
-  real_T rtu_dtraj_in[100], real_T rtu_t_in, real_T rtu_Ts_traj,
+extern void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const
+  real_T rtu_dtraj_in[101], real_T rtu_t_in, real_T rtu_Ts_traj,
   B_trajgeneration_Lab2a_templa_T *localB);
 
 #endif                                 /* RTW_HEADER_Lab2a_template_private_h_ */

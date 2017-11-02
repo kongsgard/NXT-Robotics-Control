@@ -49,115 +49,115 @@
 	
 	  ;% Lab2a_template_P.traj_B
 	  section.data(5).logicalSrcIdx = 4;
-	  section.data(5).dtTransOffset = 103;
+	  section.data(5).dtTransOffset = 104;
 	
 	  ;% Lab2a_template_P.traj_C
 	  section.data(6).logicalSrcIdx = 5;
-	  section.data(6).dtTransOffset = 203;
+	  section.data(6).dtTransOffset = 205;
 	
 	  ;% Lab2a_template_P.traj_dA
 	  section.data(7).logicalSrcIdx = 6;
-	  section.data(7).dtTransOffset = 303;
+	  section.data(7).dtTransOffset = 306;
 	
 	  ;% Lab2a_template_P.traj_dB
 	  section.data(8).logicalSrcIdx = 7;
-	  section.data(8).dtTransOffset = 403;
+	  section.data(8).dtTransOffset = 407;
 	
 	  ;% Lab2a_template_P.traj_dC
 	  section.data(9).logicalSrcIdx = 8;
-	  section.data(9).dtTransOffset = 503;
+	  section.data(9).dtTransOffset = 508;
 	
 	  ;% Lab2a_template_P.OffReset_Value
 	  section.data(10).logicalSrcIdx = 9;
-	  section.data(10).dtTransOffset = 603;
+	  section.data(10).dtTransOffset = 609;
 	
 	  ;% Lab2a_template_P.On_Value
 	  section.data(11).logicalSrcIdx = 10;
-	  section.data(11).dtTransOffset = 604;
+	  section.data(11).dtTransOffset = 610;
 	
 	  ;% Lab2a_template_P.Gain_Gain
 	  section.data(12).logicalSrcIdx = 11;
-	  section.data(12).dtTransOffset = 605;
+	  section.data(12).dtTransOffset = 611;
 	
 	  ;% Lab2a_template_P.Internal_A
 	  section.data(13).logicalSrcIdx = 12;
-	  section.data(13).dtTransOffset = 606;
+	  section.data(13).dtTransOffset = 612;
 	
 	  ;% Lab2a_template_P.Internal_C
 	  section.data(14).logicalSrcIdx = 13;
-	  section.data(14).dtTransOffset = 607;
+	  section.data(14).dtTransOffset = 613;
 	
 	  ;% Lab2a_template_P.Internal_D
 	  section.data(15).logicalSrcIdx = 14;
-	  section.data(15).dtTransOffset = 608;
+	  section.data(15).dtTransOffset = 614;
 	
 	  ;% Lab2a_template_P.Internal_X0
 	  section.data(16).logicalSrcIdx = 15;
-	  section.data(16).dtTransOffset = 609;
+	  section.data(16).dtTransOffset = 615;
 	
 	  ;% Lab2a_template_P.Saturation_UpperSat
 	  section.data(17).logicalSrcIdx = 16;
-	  section.data(17).dtTransOffset = 610;
+	  section.data(17).dtTransOffset = 616;
 	
 	  ;% Lab2a_template_P.Saturation_LowerSat
 	  section.data(18).logicalSrcIdx = 17;
-	  section.data(18).dtTransOffset = 611;
+	  section.data(18).dtTransOffset = 617;
 	
 	  ;% Lab2a_template_P.Gain1_Gain
 	  section.data(19).logicalSrcIdx = 18;
-	  section.data(19).dtTransOffset = 612;
+	  section.data(19).dtTransOffset = 618;
 	
 	  ;% Lab2a_template_P.Internal_A_j
 	  section.data(20).logicalSrcIdx = 19;
-	  section.data(20).dtTransOffset = 613;
+	  section.data(20).dtTransOffset = 619;
 	
 	  ;% Lab2a_template_P.Internal_C_a
 	  section.data(21).logicalSrcIdx = 20;
-	  section.data(21).dtTransOffset = 614;
+	  section.data(21).dtTransOffset = 620;
 	
 	  ;% Lab2a_template_P.Internal_D_g
 	  section.data(22).logicalSrcIdx = 21;
-	  section.data(22).dtTransOffset = 615;
+	  section.data(22).dtTransOffset = 621;
 	
 	  ;% Lab2a_template_P.Internal_X0_l
 	  section.data(23).logicalSrcIdx = 22;
-	  section.data(23).dtTransOffset = 616;
+	  section.data(23).dtTransOffset = 622;
 	
 	  ;% Lab2a_template_P.Saturation1_UpperSat
 	  section.data(24).logicalSrcIdx = 23;
-	  section.data(24).dtTransOffset = 617;
+	  section.data(24).dtTransOffset = 623;
 	
 	  ;% Lab2a_template_P.Saturation1_LowerSat
 	  section.data(25).logicalSrcIdx = 24;
-	  section.data(25).dtTransOffset = 618;
+	  section.data(25).dtTransOffset = 624;
 	
 	  ;% Lab2a_template_P.Gain2_Gain
 	  section.data(26).logicalSrcIdx = 25;
-	  section.data(26).dtTransOffset = 619;
+	  section.data(26).dtTransOffset = 625;
 	
 	  ;% Lab2a_template_P.Internal_A_l
 	  section.data(27).logicalSrcIdx = 26;
-	  section.data(27).dtTransOffset = 620;
+	  section.data(27).dtTransOffset = 626;
 	
 	  ;% Lab2a_template_P.Internal_C_i
 	  section.data(28).logicalSrcIdx = 27;
-	  section.data(28).dtTransOffset = 621;
+	  section.data(28).dtTransOffset = 627;
 	
 	  ;% Lab2a_template_P.Internal_D_f
 	  section.data(29).logicalSrcIdx = 28;
-	  section.data(29).dtTransOffset = 622;
+	  section.data(29).dtTransOffset = 628;
 	
 	  ;% Lab2a_template_P.Internal_X0_e
 	  section.data(30).logicalSrcIdx = 29;
-	  section.data(30).dtTransOffset = 623;
+	  section.data(30).dtTransOffset = 629;
 	
 	  ;% Lab2a_template_P.Saturation2_UpperSat
 	  section.data(31).logicalSrcIdx = 30;
-	  section.data(31).dtTransOffset = 624;
+	  section.data(31).dtTransOffset = 630;
 	
 	  ;% Lab2a_template_P.Saturation2_LowerSat
 	  section.data(32).logicalSrcIdx = 31;
-	  section.data(32).dtTransOffset = 625;
+	  section.data(32).dtTransOffset = 631;
 	
       nTotData = nTotData + section.nData;
       paramMap.sections(1) = section;
@@ -444,8 +444,8 @@
   ;%
 
 
-  targMap.checksum0 = 4066698827;
-  targMap.checksum1 = 3654309783;
-  targMap.checksum2 = 3003676189;
-  targMap.checksum3 = 929376589;
+  targMap.checksum0 = 245606853;
+  targMap.checksum1 = 2395247321;
+  targMap.checksum2 = 61851849;
+  targMap.checksum3 = 2516897216;
 
