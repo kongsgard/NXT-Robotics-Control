@@ -1,5 +1,23 @@
+
+Kp = 10;
+Kd = 1;
+Ts_traj = 0.3;
+tau = 0.05;                                        % test BOTH 0. 0 5 AND 0. 1 0 seconds
+cttf = tf([1 0], [tau 1]);                         % numer : "s"; denom: "tau * s + 1".
+dttf = c2d(cttf, Ts_traj, 'tustin');     % create the DT lowpass filter
+Ts = Ts_traj;
+
+
+
+
+
+
+
 %% This script is a template for generating an elliptical trajectory
 
+
+
+     
 % Define the sampling time of the trajectory
 Ts_traj = 0.3;
 t_max = 20;
@@ -94,3 +112,9 @@ ylabel('v_\phi_b (rad/s)'); xlabel('Time (normalized)'); grid on
 %% Next use your code from lab 2A to generate joint angle trajectories, 
 %noting that the jacobian is NOT constant in this case..
 [t, q, q_dot] = calculateJointTrajectoriesImproved(x, y, Ts_traj);
+traj_A = q(1, :);
+traj_dA = q_dot(1, :);
+traj_B = q(2, :);
+traj_dB = q_dot(2, :);
+traj_C = q(3, :);
+traj_dC = q_dot(3, :);

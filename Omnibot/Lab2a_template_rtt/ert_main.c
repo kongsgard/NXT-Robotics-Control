@@ -6,7 +6,7 @@
  * Model version                  : 1.37
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Oct 25 21:42:34 2017
+ * C/C++ source code generated on : Wed Nov 01 20:01:37 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -25,7 +25,7 @@
 #include <updown.h>
 
 int tick = 0;
-double period = 0.005;
+double period = 0.3;
 int sampleTime = 0;
 int or_ext = 0;
 int or_mdl = 0;
@@ -113,8 +113,8 @@ TASK(OSEK_Task_main)
       rtExtModeUpload(0, Lab2a_template_M->Timing.t[0]);
     }
 
-    {                                  /* Sample time: [0.005s, 0.0s] */
-      rtExtModeUpload(1, ((Lab2a_template_M->Timing.clockTick1) * 0.005));
+    {                                  /* Sample time: [0.3s, 0.0s] */
+      rtExtModeUpload(1, ((Lab2a_template_M->Timing.clockTick1) * 0.3));
     }
 
     Lab2a_template_update();
