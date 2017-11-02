@@ -6,6 +6,16 @@ t_max = 20;
 t = 0:Ts_traj:t_max;
 N = length(t);
 
+% Controller parameters
+Kp = 10;
+Kd = 1;
+Ts = Ts_traj;
+
+% DT lowpass filter
+tau = 0.05;                                        % test BOTH 0. 0 5 AND 0. 1 0 seconds
+cttf = tf([1 0], [tau 1]);                         % numer : "s"; denom: "tau * s + 1".
+dttf = c2d(cttf, Ts, 'tustin');                    % create the DT lowpass filter
+
 %Define angle of (half) ellipse 
 theta = linspace(0,pi,N); 
 
