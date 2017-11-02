@@ -63,33 +63,51 @@ for n = 1:length(x)
     drawnow
 end
 
-%% Plot trajectories
-figure(502); clf
-subplot(3,1,1);
-plot(t,x);
-ylabel('X_b (m)'); xlabel('Time (normalized)'); grid on
+%% Plot 1
+% Designed trajectories for Xb, Yb and phi
+% Run 'lab2b.m' first!
 
-subplot(3,1,2);
-plot(t,y);
-ylabel('Y_b (m)'); xlabel('Time (normalized)'); grid on
+figure(1); clf;
+subplot(3, 1, 1); hold on;
+plot(t, x);
+title('x', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Distance (m)', 'FontSize', 20, 'Interpreter', 'Latex');
 
-subplot(3,1,3);
+subplot(3, 1, 2); hold on;
+plot(t, y);
+title('y', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Distance (m)', 'FontSize', 20, 'Interpreter', 'Latex');
+
+subplot(3, 1, 3); hold on;
 plot(t, unwrap(phi)*180/pi);
-ylabel('\phi_b (deg)'); xlabel('Time (normalized)'); grid on
+title('$\phi$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 %% Plot velocities
-figure(502); clf
-subplot(3,1,1);
-plot(t,v_x);
-ylabel('v_x_b (m/s)'); xlabel('Time (normalized)'); grid on
+% Designed trajectories for Xb, Yb and phi
+% Run 'lab2b.m' first!
 
-subplot(3,1,2);
-plot(t,v_y);
-ylabel('v_y_b (m/s)'); xlabel('Time (normalized)'); grid on
+figure(2); clf;
+subplot(3, 1, 1); hold on;
+plot(t, v_x);
+title('x', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Velocity (m/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 
-subplot(3,1,3);
+subplot(3, 1, 2); hold on;
+plot(t, v_y);
+title('y', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Velocity (m/time)', 'FontSize', 20, 'Interpreter', 'Latex');
+
+subplot(3, 1, 3); hold on;
 plot(t, unwrap(v_phi)*180/pi);
-ylabel('v_\phi_b (rad/s)'); xlabel('Time (normalized)'); grid on
+title('$\phi$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 %% Next use your code from lab 2A to generate joint angle trajectories, 
 %noting that the jacobian is NOT constant in this case..
