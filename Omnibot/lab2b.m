@@ -80,13 +80,13 @@ end
 figure(1); clf;
 subplot(3, 1, 1); hold on;
 plot(t, x);
-title('x', 'FontSize', 30, 'Interpreter', 'Latex');
+title('$x$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Distance (m)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 subplot(3, 1, 2); hold on;
 plot(t, y);
-title('y', 'FontSize', 30, 'Interpreter', 'Latex');
+title('$y$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Distance (m)', 'FontSize', 20, 'Interpreter', 'Latex');
 
@@ -103,19 +103,19 @@ ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
 figure(2); clf;
 subplot(3, 1, 1); hold on;
 plot(t, v_x);
-title('x', 'FontSize', 30, 'Interpreter', 'Latex');
+title('$\dot{x}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Velocity (m/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 subplot(3, 1, 2); hold on;
 plot(t, v_y);
-title('y', 'FontSize', 30, 'Interpreter', 'Latex');
+title('$\dot{y}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Velocity (m/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 subplot(3, 1, 3); hold on;
 plot(t, unwrap(v_phi)*180/pi);
-title('$\phi$', 'FontSize', 30, 'Interpreter', 'Latex');
+title('$\dot{\phi}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad/time)', 'FontSize', 20, 'Interpreter', 'Latex');
 
