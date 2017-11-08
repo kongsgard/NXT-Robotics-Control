@@ -6,7 +6,7 @@
  * Model version                  : 1.45
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Nov 08 14:17:41 2017
+ * C/C++ source code generated on : Wed Nov 08 14:58:03 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -35,8 +35,8 @@ RT_MODEL_Lab2a_template_T *const Lab2a_template_M = &Lab2a_template_M_;
  *    '<Root>/traj generation1'
  *    '<Root>/traj generation2'
  */
-void Lab2a_template_trajgeneration(const real_T rtu_traj_in[67], const real_T
-  rtu_dtraj_in[67], real_T rtu_t_in, real_T rtu_Ts_traj,
+void Lab2a_template_trajgeneration(const real_T rtu_traj_in[101], const real_T
+  rtu_dtraj_in[101], real_T rtu_t_in, real_T rtu_Ts_traj,
   B_trajgeneration_Lab2a_templa_T *localB)
 {
   real_T index_fraction;
@@ -60,7 +60,7 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[67], const real_T
     index_fraction = 0.0;
   }
 
-  index_fraction = 67.0 / (rtu_Ts_traj * 67.0) * index_fraction + 1.0;
+  index_fraction = 101.0 / (rtu_Ts_traj * 101.0) * index_fraction + 1.0;
 
   /* '<S8>:1:13' */
   b_index = floor(index_fraction);
@@ -70,7 +70,7 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[67], const real_T
 
   /*  additional amount "beyond" index */
   /* Extract the current position from the trajectory (plus interp) */
-  if (b_index < 67.0) {
+  if (b_index < 101.0) {
     /* '<S8>:1:16' */
     /* '<S8>:1:18' */
     localB->ref_cur = rtu_traj_in[(int32_T)(b_index + 1.0) - 1] * index_fraction
@@ -83,10 +83,10 @@ void Lab2a_template_trajgeneration(const real_T rtu_traj_in[67], const real_T
   } else {
     /* If we run out of data, continue outputting the last value */
     /* '<S8>:1:25' */
-    localB->ref_cur = rtu_traj_in[66];
+    localB->ref_cur = rtu_traj_in[100];
 
     /* '<S8>:1:26' */
-    localB->ref_dcur = rtu_dtraj_in[66];
+    localB->ref_dcur = rtu_dtraj_in[100];
   }
 
   /* '<S8>:1:28' */
@@ -100,12 +100,11 @@ void Lab2a_template_output(void)
   real_T rtb_Clock;
   real_T rtb_clk;
   real_T rtb_Sum1;
-  real_T rtb_Internal;
   int32_T rtb_Encoder2_0;
   int8_T tmp;
   int8_T tmp_0;
   int8_T tmp_1;
-  real_T tmp_2;
+  real_T rtb_Sum3;
 
   /* S-Function (nxt_encoder): '<S1>/Encoder' */
   rtb_Encoder2_0 = getEncoderValueNoReset(1U);
@@ -113,10 +112,10 @@ void Lab2a_template_output(void)
   /* DataTypeConversion: '<S1>/Data Type Conversion1' incorporates:
    *  S-Function (nxt_encoder): '<S1>/Encoder'
    */
-  rtb_Internal = rtb_Encoder2_0;
+  rtb_Sum1 = rtb_Encoder2_0;
 
   /* Gain: '<S1>/Gain' */
-  Lab2a_template_B.Gain = Lab2a_template_P.Gain_Gain * rtb_Internal;
+  Lab2a_template_B.Gain = Lab2a_template_P.Gain_Gain * rtb_Sum1;
 
   /* Clock: '<Root>/Clock' */
   rtb_Clock = Lab2a_template_M->Timing.t[0];
@@ -177,10 +176,10 @@ void Lab2a_template_output(void)
   /* DataTypeConversion: '<S2>/Data Type Conversion3' incorporates:
    *  S-Function (nxt_encoder): '<S2>/Encoder1'
    */
-  rtb_Internal = rtb_Encoder2_0;
+  rtb_Sum1 = rtb_Encoder2_0;
 
   /* Gain: '<S2>/Gain1' */
-  Lab2a_template_B.Gain1 = Lab2a_template_P.Gain1_Gain * rtb_Internal;
+  Lab2a_template_B.Gain1 = Lab2a_template_P.Gain1_Gain * rtb_Sum1;
 
   /* MATLAB Function: '<Root>/traj generation1' incorporates:
    *  Constant: '<Root>/Constant'
@@ -197,10 +196,10 @@ void Lab2a_template_output(void)
   /* DataTypeConversion: '<S3>/Data Type Conversion5' incorporates:
    *  S-Function (nxt_encoder): '<S3>/Encoder2'
    */
-  rtb_Internal = rtb_Encoder2_0;
+  rtb_Sum1 = rtb_Encoder2_0;
 
   /* Gain: '<S3>/Gain2' */
-  Lab2a_template_B.Gain2 = Lab2a_template_P.Gain2_Gain * rtb_Internal;
+  Lab2a_template_B.Gain2 = Lab2a_template_P.Gain2_Gain * rtb_Sum1;
 
   /* MATLAB Function: '<Root>/traj generation2' incorporates:
    *  Constant: '<Root>/Constant'
@@ -211,12 +210,8 @@ void Lab2a_template_output(void)
     Lab2a_template_P.traj_dC, rtb_clk, Lab2a_template_P.Ts_traj,
     &Lab2a_template_B.sf_trajgeneration2);
 
-  /* DiscreteIntegrator: '<S4>/Discrete-Time Integrator' */
-  rtb_Internal = Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE;
-
   /* Sum: '<S4>/Sum3' */
-  Lab2a_template_B.Sum3 = Lab2a_template_B.sf_trajgeneration.ref_cur -
-    Lab2a_template_B.Gain;
+  rtb_Sum3 = Lab2a_template_B.sf_trajgeneration.ref_cur - Lab2a_template_B.Gain;
 
   /* DiscreteStateSpace: '<S11>/Internal' */
   {
@@ -229,47 +224,44 @@ void Lab2a_template_output(void)
    *  Gain: '<S4>/Gain1'
    *  Sum: '<S4>/Sum2'
    */
-  rtb_Internal = (Lab2a_template_P.Kp * Lab2a_template_B.Sum3 + rtb_Internal) +
+  rtb_Sum1 = (Lab2a_template_P.Kp * rtb_Sum3 + 0.0) +
     (Lab2a_template_B.sf_trajgeneration.ref_dcur - rtb_Sum1) *
     Lab2a_template_P.Kd;
 
   /* Saturate: '<S1>/Saturation' */
-  if (rtb_Internal > Lab2a_template_P.Saturation_UpperSat) {
+  if (rtb_Sum1 > Lab2a_template_P.Saturation_UpperSat) {
     Lab2a_template_B.Saturation = Lab2a_template_P.Saturation_UpperSat;
-  } else if (rtb_Internal < Lab2a_template_P.Saturation_LowerSat) {
+  } else if (rtb_Sum1 < Lab2a_template_P.Saturation_LowerSat) {
     Lab2a_template_B.Saturation = Lab2a_template_P.Saturation_LowerSat;
   } else {
-    Lab2a_template_B.Saturation = rtb_Internal;
+    Lab2a_template_B.Saturation = rtb_Sum1;
   }
 
   /* End of Saturate: '<S1>/Saturation' */
 
   /* DataTypeConversion: '<S1>/Data Type Conversion' */
-  tmp_2 = floor(Lab2a_template_B.Saturation);
-  if (rtIsNaN(tmp_2) || rtIsInf(tmp_2)) {
-    tmp_2 = 0.0;
+  rtb_Sum3 = floor(Lab2a_template_B.Saturation);
+  if (rtIsNaN(rtb_Sum3) || rtIsInf(rtb_Sum3)) {
+    rtb_Sum3 = 0.0;
   } else {
-    tmp_2 = fmod(tmp_2, 256.0);
+    rtb_Sum3 = fmod(rtb_Sum3, 256.0);
   }
 
   /* S-Function (nxt_motor): '<S14>/Motor' incorporates:
    *  DataTypeConversion: '<S1>/Data Type Conversion'
    */
-  tmp = (int8_T)(tmp_2 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-tmp_2 :
-                 (int32_T)(int8_T)(uint8_T)tmp_2);
+  tmp = (int8_T)(rtb_Sum3 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-rtb_Sum3 :
+                 (int32_T)(int8_T)(uint8_T)rtb_Sum3);
   setMotor(&tmp, 1U, 2U);
 
-  /* DiscreteIntegrator: '<S5>/Discrete-Time Integrator' */
-  rtb_Sum1 = Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE_e;
-
   /* Sum: '<S5>/Sum3' */
-  Lab2a_template_B.Sum3_e = Lab2a_template_B.sf_trajgeneration1.ref_cur -
+  rtb_Sum3 = Lab2a_template_B.sf_trajgeneration1.ref_cur -
     Lab2a_template_B.Gain1;
 
   /* DiscreteStateSpace: '<S12>/Internal' */
   {
-    rtb_Internal = Lab2a_template_P.Internal_D_g*Lab2a_template_B.Gain1;
-    rtb_Internal += Lab2a_template_P.Internal_C_a*
+    rtb_Sum1 = Lab2a_template_P.Internal_D_g*Lab2a_template_B.Gain1;
+    rtb_Sum1 += Lab2a_template_P.Internal_C_a*
       Lab2a_template_DW.Internal_DSTATE_k;
   }
 
@@ -278,8 +270,8 @@ void Lab2a_template_output(void)
    *  Gain: '<S5>/Gain1'
    *  Sum: '<S5>/Sum2'
    */
-  rtb_Sum1 = (Lab2a_template_P.Kp * Lab2a_template_B.Sum3_e + rtb_Sum1) +
-    (Lab2a_template_B.sf_trajgeneration1.ref_dcur - rtb_Internal) *
+  rtb_Sum1 = (Lab2a_template_P.Kp * rtb_Sum3 + 0.0) +
+    (Lab2a_template_B.sf_trajgeneration1.ref_dcur - rtb_Sum1) *
     Lab2a_template_P.Kd;
 
   /* Saturate: '<S2>/Saturation1' */
@@ -294,31 +286,28 @@ void Lab2a_template_output(void)
   /* End of Saturate: '<S2>/Saturation1' */
 
   /* DataTypeConversion: '<S2>/Data Type Conversion2' */
-  tmp_2 = floor(Lab2a_template_B.Saturation1);
-  if (rtIsNaN(tmp_2) || rtIsInf(tmp_2)) {
-    tmp_2 = 0.0;
+  rtb_Sum3 = floor(Lab2a_template_B.Saturation1);
+  if (rtIsNaN(rtb_Sum3) || rtIsInf(rtb_Sum3)) {
+    rtb_Sum3 = 0.0;
   } else {
-    tmp_2 = fmod(tmp_2, 256.0);
+    rtb_Sum3 = fmod(rtb_Sum3, 256.0);
   }
 
   /* S-Function (nxt_motor): '<S15>/Motor' incorporates:
    *  DataTypeConversion: '<S2>/Data Type Conversion2'
    */
-  tmp_0 = (int8_T)(tmp_2 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-tmp_2 :
-                   (int32_T)(int8_T)(uint8_T)tmp_2);
+  tmp_0 = (int8_T)(rtb_Sum3 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-rtb_Sum3
+                   : (int32_T)(int8_T)(uint8_T)rtb_Sum3);
   setMotor(&tmp_0, 2U, 2U);
 
-  /* DiscreteIntegrator: '<S6>/Discrete-Time Integrator' */
-  rtb_Sum1 = Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE_l;
-
   /* Sum: '<S6>/Sum3' */
-  Lab2a_template_B.Sum3_j = Lab2a_template_B.sf_trajgeneration2.ref_cur -
+  rtb_Sum3 = Lab2a_template_B.sf_trajgeneration2.ref_cur -
     Lab2a_template_B.Gain2;
 
   /* DiscreteStateSpace: '<S13>/Internal' */
   {
-    rtb_Internal = Lab2a_template_P.Internal_D_f*Lab2a_template_B.Gain2;
-    rtb_Internal += Lab2a_template_P.Internal_C_i*
+    rtb_Sum1 = Lab2a_template_P.Internal_D_f*Lab2a_template_B.Gain2;
+    rtb_Sum1 += Lab2a_template_P.Internal_C_i*
       Lab2a_template_DW.Internal_DSTATE_j;
   }
 
@@ -327,8 +316,8 @@ void Lab2a_template_output(void)
    *  Gain: '<S6>/Gain1'
    *  Sum: '<S6>/Sum2'
    */
-  rtb_Sum1 = (Lab2a_template_P.Kp * Lab2a_template_B.Sum3_j + rtb_Sum1) +
-    (Lab2a_template_B.sf_trajgeneration2.ref_dcur - rtb_Internal) *
+  rtb_Sum1 = (Lab2a_template_P.Kp * rtb_Sum3 + 0.0) +
+    (Lab2a_template_B.sf_trajgeneration2.ref_dcur - rtb_Sum1) *
     Lab2a_template_P.Kd;
 
   /* Saturate: '<S3>/Saturation2' */
@@ -343,47 +332,35 @@ void Lab2a_template_output(void)
   /* End of Saturate: '<S3>/Saturation2' */
 
   /* DataTypeConversion: '<S3>/Data Type Conversion4' */
-  tmp_2 = floor(Lab2a_template_B.Saturation2);
-  if (rtIsNaN(tmp_2) || rtIsInf(tmp_2)) {
-    tmp_2 = 0.0;
+  rtb_Sum3 = floor(Lab2a_template_B.Saturation2);
+  if (rtIsNaN(rtb_Sum3) || rtIsInf(rtb_Sum3)) {
+    rtb_Sum3 = 0.0;
   } else {
-    tmp_2 = fmod(tmp_2, 256.0);
+    rtb_Sum3 = fmod(rtb_Sum3, 256.0);
   }
 
   /* S-Function (nxt_motor): '<S16>/Motor' incorporates:
    *  DataTypeConversion: '<S3>/Data Type Conversion4'
    */
-  tmp_1 = (int8_T)(tmp_2 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-tmp_2 :
-                   (int32_T)(int8_T)(uint8_T)tmp_2);
+  tmp_1 = (int8_T)(rtb_Sum3 < 0.0 ? (int32_T)(int8_T)-(int8_T)(uint8_T)-rtb_Sum3
+                   : (int32_T)(int8_T)(uint8_T)rtb_Sum3);
   setMotor(&tmp_1, 3U, 2U);
 }
 
 /* Model update function */
 void Lab2a_template_update(void)
 {
-  /* Update for DiscreteIntegrator: '<S4>/Discrete-Time Integrator' */
-  Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE +=
-    Lab2a_template_P.DiscreteTimeIntegrator_gainval * Lab2a_template_B.Sum3;
-
   /* Update for DiscreteStateSpace: '<S11>/Internal' */
   {
     Lab2a_template_DW.Internal_DSTATE = Lab2a_template_B.Gain +
       Lab2a_template_P.Internal_A*Lab2a_template_DW.Internal_DSTATE;
   }
 
-  /* Update for DiscreteIntegrator: '<S5>/Discrete-Time Integrator' */
-  Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE_e +=
-    Lab2a_template_P.DiscreteTimeIntegrator_gainva_l * Lab2a_template_B.Sum3_e;
-
   /* Update for DiscreteStateSpace: '<S12>/Internal' */
   {
     Lab2a_template_DW.Internal_DSTATE_k = Lab2a_template_B.Gain1 +
       Lab2a_template_P.Internal_A_j*Lab2a_template_DW.Internal_DSTATE_k;
   }
-
-  /* Update for DiscreteIntegrator: '<S6>/Discrete-Time Integrator' */
-  Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE_l +=
-    Lab2a_template_P.DiscreteTimeIntegrator_gainva_j * Lab2a_template_B.Sum3_j;
 
   /* Update for DiscreteStateSpace: '<S13>/Internal' */
   {
@@ -455,10 +432,10 @@ void Lab2a_template_initialize(void)
   Lab2a_template_M->Timing.stepSize0 = 0.005;
 
   /* External mode info */
-  Lab2a_template_M->Sizes.checksums[0] = (3670305594U);
-  Lab2a_template_M->Sizes.checksums[1] = (3316906591U);
-  Lab2a_template_M->Sizes.checksums[2] = (1802809479U);
-  Lab2a_template_M->Sizes.checksums[3] = (4279287280U);
+  Lab2a_template_M->Sizes.checksums[0] = (2807507462U);
+  Lab2a_template_M->Sizes.checksums[1] = (3111162048U);
+  Lab2a_template_M->Sizes.checksums[2] = (1312912385U);
+  Lab2a_template_M->Sizes.checksums[3] = (2589739818U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -507,23 +484,11 @@ void Lab2a_template_initialize(void)
   Lab2a_template_DW.t_off = 0.0;
   Lab2a_template_DW.last_rst = 0.0;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S4>/Discrete-Time Integrator' */
-  Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE =
-    Lab2a_template_P.DiscreteTimeIntegrator_IC;
-
   /* InitializeConditions for DiscreteStateSpace: '<S11>/Internal' */
   Lab2a_template_DW.Internal_DSTATE = Lab2a_template_P.Internal_X0;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S5>/Discrete-Time Integrator' */
-  Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE_e =
-    Lab2a_template_P.DiscreteTimeIntegrator_IC_i;
-
   /* InitializeConditions for DiscreteStateSpace: '<S12>/Internal' */
   Lab2a_template_DW.Internal_DSTATE_k = Lab2a_template_P.Internal_X0_l;
-
-  /* InitializeConditions for DiscreteIntegrator: '<S6>/Discrete-Time Integrator' */
-  Lab2a_template_DW.DiscreteTimeIntegrator_DSTATE_l =
-    Lab2a_template_P.DiscreteTimeIntegrator_IC_ig;
 
   /* InitializeConditions for DiscreteStateSpace: '<S13>/Internal' */
   Lab2a_template_DW.Internal_DSTATE_j = Lab2a_template_P.Internal_X0_e;
