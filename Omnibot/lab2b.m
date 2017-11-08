@@ -7,8 +7,9 @@ t = 0:Ts_traj:t_max;
 N = length(t);
 
 % Controller parameters
-Kp = 9;
-Kd = 1;
+Kp = 50;
+Kd = 10;
+Ki = 4;
 Ts = 0.005;
 
 % DT lowpass filter
@@ -17,11 +18,15 @@ cttf = tf([1 0], [tau 1]);                         % numer : "s"; denom: "tau * 
 dttf = c2d(cttf, Ts, 'tustin');                    % create the DT lowpass filter
 
 %Define angle of (half) ellipse 
-theta = linspace(0,pi,N); 
+theta = linspace(0,pi,N);
+
 
 %Target location -- this is where the laser "bullseye" is
-x0 = .9144;      % 3 feet from start position, in x
-y0 = 0.6196;          % aligned with initial axis the laser points
+%x0 = .9144; 
+% 3 feet from start position, in x
+x0 = 1.6;
+%y0 = 0.6196;          % aligned with initial axis the laser points
+y0 = 0.7;
 
 %Generate the ellipse
 LongWidth =  4*12*.0254; %This is the desired ending position on the x-axis
@@ -30,16 +35,20 @@ x = (LongWidth/2)*cos(theta-pi/2); %The x direction must avoid the "obstacle"
 % The goal is to travel the distance "LongWidth" in y. However,
 % you may wish to adjust the y trajectory below to "warp" the
 % command to end in the desired location.
-x=x-x(1);  % ensure we start at "x=0" when t=0
+x=x-x(1);% ensure we start at "x=0" when t=0
+
 y=y-y(1);
+
 
 %Calculate phi to orient robot toward target at all times from part 1 of lab
 phi = atan((y0-y)./(x0-x));
+
 
 %% Differentiate x, y, phi to get velocities
 v_x = [0, diff(x)/Ts_traj];
 v_y = [0, diff(y)/Ts_traj];
 v_phi = [0, diff(phi)/Ts_traj];
+
 
 %% Below are some plots and animation scripts for visualization
 
@@ -79,6 +88,7 @@ end
 
 figure(1); clf;
 subplot(3, 1, 1); hold on;
+
 plot(t, x);
 title('$x$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (normalized)', 'FontSize', 20, 'Interpreter', 'Latex');

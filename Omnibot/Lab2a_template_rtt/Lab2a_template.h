@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'Lab2a_template'.
  *
- * Model version                  : 1.38
+ * Model version                  : 1.45
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Nov 01 21:48:52 2017
+ * C/C++ source code generated on : Wed Nov 08 14:17:41 2017
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -84,8 +84,11 @@ typedef struct {
   real_T timeresetswitch;              /* '<Root>/time reset switch' */
   real_T Gain1;                        /* '<S2>/Gain1' */
   real_T Gain2;                        /* '<S3>/Gain2' */
+  real_T Sum3;                         /* '<S4>/Sum3' */
   real_T Saturation;                   /* '<S1>/Saturation' */
+  real_T Sum3_e;                       /* '<S5>/Sum3' */
   real_T Saturation1;                  /* '<S2>/Saturation1' */
+  real_T Sum3_j;                       /* '<S6>/Sum3' */
   real_T Saturation2;                  /* '<S3>/Saturation2' */
   B_trajgeneration_Lab2a_templa_T sf_trajgeneration2;/* '<Root>/traj generation2' */
   B_trajgeneration_Lab2a_templa_T sf_trajgeneration1;/* '<Root>/traj generation1' */
@@ -94,8 +97,11 @@ typedef struct {
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
+  real_T DiscreteTimeIntegrator_DSTATE;/* '<S4>/Discrete-Time Integrator' */
   real_T Internal_DSTATE;              /* '<S11>/Internal' */
+  real_T DiscreteTimeIntegrator_DSTATE_e;/* '<S5>/Discrete-Time Integrator' */
   real_T Internal_DSTATE_k;            /* '<S12>/Internal' */
+  real_T DiscreteTimeIntegrator_DSTATE_l;/* '<S6>/Discrete-Time Integrator' */
   real_T Internal_DSTATE_j;            /* '<S13>/Internal' */
   real_T t_off;                        /* '<Root>/timer w// reset' */
   real_T last_rst;                     /* '<Root>/timer w// reset' */
@@ -202,6 +208,12 @@ struct P_Lab2a_template_T_ {
   real_T Gain2_Gain;                   /* Expression: pi/180
                                         * Referenced by: '<S3>/Gain2'
                                         */
+  real_T DiscreteTimeIntegrator_gainval;/* Computed Parameter: DiscreteTimeIntegrator_gainval
+                                         * Referenced by: '<S4>/Discrete-Time Integrator'
+                                         */
+  real_T DiscreteTimeIntegrator_IC;    /* Expression: 0
+                                        * Referenced by: '<S4>/Discrete-Time Integrator'
+                                        */
   real_T Internal_A;                   /* Computed Parameter: Internal_A
                                         * Referenced by: '<S11>/Internal'
                                         */
@@ -220,6 +232,12 @@ struct P_Lab2a_template_T_ {
   real_T Saturation_LowerSat;          /* Expression: -100
                                         * Referenced by: '<S1>/Saturation'
                                         */
+  real_T DiscreteTimeIntegrator_gainva_l;/* Computed Parameter: DiscreteTimeIntegrator_gainva_l
+                                          * Referenced by: '<S5>/Discrete-Time Integrator'
+                                          */
+  real_T DiscreteTimeIntegrator_IC_i;  /* Expression: 0
+                                        * Referenced by: '<S5>/Discrete-Time Integrator'
+                                        */
   real_T Internal_A_j;                 /* Computed Parameter: Internal_A_j
                                         * Referenced by: '<S12>/Internal'
                                         */
@@ -237,6 +255,12 @@ struct P_Lab2a_template_T_ {
                                         */
   real_T Saturation1_LowerSat;         /* Expression: -100
                                         * Referenced by: '<S2>/Saturation1'
+                                        */
+  real_T DiscreteTimeIntegrator_gainva_j;/* Computed Parameter: DiscreteTimeIntegrator_gainva_j
+                                          * Referenced by: '<S6>/Discrete-Time Integrator'
+                                          */
+  real_T DiscreteTimeIntegrator_IC_ig; /* Expression: 0
+                                        * Referenced by: '<S6>/Discrete-Time Integrator'
                                         */
   real_T Internal_A_l;                 /* Computed Parameter: Internal_A_l
                                         * Referenced by: '<S13>/Internal'

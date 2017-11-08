@@ -54,3 +54,28 @@ title('Motor C trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
 xlim([0 20])
+
+%% Plot 3
+% Designed link trajectories
+
+figure(3); clf;
+subplot(3, 1, 1); hold on;
+plot(t, q_dot(1,:));
+title('Motor A trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 20])
+
+subplot(3, 1, 2); hold on;
+plot(t, q_dot(2,:));
+title('Motor B trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 20])
+
+subplot(3, 1, 3); hold on;
+plot(t, q_dot(3,:));
+title('Motor C trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 20])
