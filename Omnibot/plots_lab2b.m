@@ -79,3 +79,36 @@ title('Motor C trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
 xlim([0 20])
+
+%% Plot 1
+% Square trajectory: Encoder data for the three motors along with the reference trajectories in a single subplot.
+
+load('mat-files/lab2.mat');
+
+figure(1); clf;
+subplot(3, 1, 1); hold on;
+plot(simout_ref_A.time, simout_ref_A.signals.values)
+plot(simout_A.time, simout_A.signals.values);
+title('Motor A trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'Reference trajectory', 'Encoder data'}, 'FontSize', 20, 'Interpreter', 'Latex', 'Location', 'northwest');
+xlim([48 70])
+
+subplot(3, 1, 2); hold on;
+plot(simout_ref_B.time, simout_ref_B.signals.values)
+plot(simout_B.time, simout_B.signals.values);
+title('Motor B trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'Reference trajectory', 'Encoder data'}, 'FontSize', 20, 'Interpreter', 'Latex', 'Location', 'southwest');
+xlim([48 70])
+
+subplot(3, 1, 3); hold on;
+plot(simout_ref_C.time, simout_ref_C.signals.values)
+plot(simout_C.time, simout_C.signals.values);
+title('Motor C trajectory', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+legend({'Reference trajectory', 'Encoder data'}, 'FontSize', 20, 'Interpreter', 'Latex', 'Location', 'northwest');
+xlim([48 70])
