@@ -152,7 +152,7 @@ eig_cl_R10 = eig(A-B*K);
 
 % Plot 3
 dt = 0.001;
-t = 0:dt:5;
+t = 0:dt:20;
 [~, t, x] = initial(X_dot_cl, X_0, t);
 
 u = zeros(1, length(x(:,1)));
@@ -206,8 +206,16 @@ fprintf('Closed loop, R=10:\n');
 disp(eig_cl_R10);
 
 %% Effect of changing R
+% R determines how much we penalize the controller for setting a high
+% control input. Hence, a high R will limit the input set by the
+% controller.
 
 % States over time:
-% 
+% With a lower R, the states will more quickly go to steady state. 
 
 % Magnitude of the control input, u:
+% Lower R allows for a higher control input, since this will then be less
+% penalized. It is important to remember that R shouldn't be so low that it
+% will require a to high input from the motors (higher than what is
+% possible). A saturation of input can also be added, if a low R is to be
+% used.
