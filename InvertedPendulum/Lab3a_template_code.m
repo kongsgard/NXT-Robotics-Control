@@ -6,8 +6,8 @@ mw = 0.03;              % (kg) combined mass of BOTH wheels (SMALL WHEELS)
 L = .095;               % (meters)  Length from wheel to body mass.
 mb = 0.626;             % (kg) body mass 
 
-acc_offset = 0;          %sensor calibration to be done by you
-gyro_offset = 0;
+acc_offset = 0.027770636593421;  %sensor calibration to be done by you
+gyro_offset = 63.703796386718757;
 
 Jw = mw*Rw^2/2;         % wheel inertia
 Jb = mb*L^2/3;          % body inertia
@@ -33,7 +33,7 @@ GyroFilt = c2d(Gg, Ts,'tustin');
 AccFilt = c2d(Ga, Ts, 'tustin');
 
 %Low-pass filters -- I observe best results with f between 1-20 rad/s.
-f = 5;
+f = 10;
 VF = tf([f],[1, f]);
 LowPass = c2d(VF,Ts,'tustin');
 LowPass2 = LowPass;
