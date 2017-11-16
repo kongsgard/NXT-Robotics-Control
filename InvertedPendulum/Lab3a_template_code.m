@@ -72,7 +72,7 @@ open_loop_poles = eig(A);
 
 % Q = diag([5 1300 20 1]);
 Q = diag([5 1300 20 1]);
-R = 2;
+R = 1.5;
 K = lqr(A,B,Q,R);
 
 K(3) = 0;           %performance is better w/ dphi state zero or small
