@@ -21,7 +21,7 @@ xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angular Velocity (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
 
 %% Plot 2
-% load('mat-files/plot2a.mat');
+load('mat-files/plot234a.mat');
 
 t = simout_theta.time;
 theta = simout_theta.signals.values;
@@ -29,19 +29,21 @@ theta_dot = filter(dttf.num{1}, dttf.den{1}, theta);
 
 figure(2); clf;
 subplot(2, 1, 1); hold on;
-plot(t, theta);
+plot(t - 11, theta);
 title('Tilt Angle, $\theta$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 16]);
 
 subplot(2, 1, 2); hold on;
-plot(t, theta_dot);
+plot(t - 11, theta_dot);
 title('Tilt Angular Velocity, $\dot{\theta}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angular Velocity (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 16]);
 
 %% Plot 3
-% load('mat-files/plot3a.mat');
+load('mat-files/plot234a.mat');
 
 t = simout_phi.time;
 phi = simout_phi.signals.values;
@@ -49,25 +51,29 @@ phi_dot = simout_dphi.signals.values;
 
 figure(3); clf;
 subplot(2, 1, 1); hold on;
-plot(t, phi);
+plot(t - 11, phi);
 title('Wheel Angle, $\phi$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 16]);
 
 subplot(2, 1, 2); hold on;
-plot(t, phi_dot);
+plot(t - 11, phi_dot);
 title('Wheel Angular Velocity, $\dot{\phi}$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Angular Velocity (rad/s)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 16]);
 
 %% Plot 4
-% load('mat-files/plot4a.mat');
+load('mat-files/plot234a.mat');
 
 t = simout_u.time;
 u = simout_u.signals.values;
 
 figure(4); clf;
-plot(t, u);
+plot(t - 11, u);
 title('Actuator Output, $u$', 'FontSize', 30, 'Interpreter', 'Latex');
 xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Output', 'FontSize', 20, 'Interpreter', 'Latex');
+ylim([-200 200])
+xlim([0 16]);

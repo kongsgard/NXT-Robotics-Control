@@ -70,9 +70,9 @@ D = [0 0 0 0]';
 ss1 = ss(A,B,C,D);
 open_loop_poles = eig(A);
 
-
-Q = diag([ 10 1000 500 500 ]);
-R = 1;
+% Q = diag([5 1300 20 1]);
+Q = diag([5 1300 20 1]);
+R = 2;
 K = lqr(A,B,Q,R);
 
 K(3) = 0;           %performance is better w/ dphi state zero or small
@@ -80,6 +80,7 @@ K;
 eig(A-B*K)
 
 
+%% Tuned:
 
 
 %    _________________________________
