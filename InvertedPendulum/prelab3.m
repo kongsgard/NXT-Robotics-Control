@@ -193,9 +193,9 @@ ylabel('$\dot{\theta_b}$','interpreter','latex');
 set(get(gca,'ylabel'),'rotation',0)
 grid on;
 
-%% Eigenvalues
+%% Poles
 
-fprintf('EIGENVALUES:\n');
+fprintf('POLES:\n');
 fprintf('Open loop:\n');
 disp(eig_ol);
 fprintf('Closed loop, R=1:\n');
