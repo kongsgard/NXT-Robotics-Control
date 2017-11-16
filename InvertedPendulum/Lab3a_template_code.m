@@ -71,14 +71,13 @@ ss1 = ss(A,B,C,D);
 open_loop_poles = eig(A);
 
 
-% Q = diag([ ]);
-Q = eye(4);
+Q = diag([ 10 1000 500 500 ]);
 R = 1;
 K = lqr(A,B,Q,R);
 
 K(3) = 0;           %performance is better w/ dphi state zero or small
-K
-
+K;
+eig(A-B*K)
 
 
 
