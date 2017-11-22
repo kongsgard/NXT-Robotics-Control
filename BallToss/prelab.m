@@ -18,7 +18,6 @@ vars = [sym_ax_2 sym_ax_3];
 t = linspace(0, 1, 10);
 x = ax_2 * t.^2 + ax_3 * t.^3;
 v_x = 2 * ax_2 * t + 3 * ax_3 * t.^2;
-y = ay_2
 
 % Ball trajectory in "joint space"
 D = (x^2 + y^2 - R1^2 - R2^2) / (2 * R1 * R2);

@@ -18,7 +18,7 @@ plot(t_1_com, theta_1_com);
 title('$\theta_1$','FontSize',30,'Interpreter','Latex');
 xlabel('Time (seconds)','FontSize',20,'Interpreter','Latex');
 ylabel('Angle (rad)','FontSize',20,'Interpreter','Latex');
-legend({'Reference $\theta_1$', 'Actual $\theta_1$'},'Interpreter','Latex')
+legend({'Reference $\theta_1$', 'Actual $\theta_1$'},'FontSize',20,'Interpreter','Latex')
 grid on;
 
 %% Plot 2 - theta_2 - Actual response trajectory
@@ -36,11 +36,10 @@ plot(t_2_com, theta_2_com);
 title('$\theta_1$','FontSize',30,'Interpreter','Latex');
 xlabel('Time (seconds)','FontSize',20,'Interpreter','Latex');
 ylabel('Angle (rad)','FontSize',20,'Interpreter','Latex');
-legend({'(Missing) reference $\theta_1$', 'Actual $\theta_1$'},'Interpreter','Latex')
+legend({'(Missing) reference $\theta_1$', 'Actual $\theta_1$'},'FontSize',20,'Interpreter','Latex');
 grid on;
 
-
-%% Plot 3
+%% Plot 3 - Velocities for both link angles
 
 Ts   = 0.01;
 tau  = 0.05;                                        
@@ -60,7 +59,7 @@ plot(t_1_com, dtheta_1_com);
 title('$\dot{\theta}_1$','FontSize',30,'Interpreter','Latex');
 xlabel('Time (seconds)','FontSize',20,'Interpreter','Latex');
 ylabel('Angular Velocity (rad/s)','FontSize',20,'Interpreter','Latex');
-legend({'Reference $\dot{\theta}_1$', 'Actual $\dot{\theta}_1$'},'Interpreter','Latex')
+legend({'Reference $\dot{\theta}_1$', 'Actual $\dot{\theta}_1$'},'FontSize',20,'Interpreter','Latex');
 grid on;
 
 subplot(2,1,2); hold on;
@@ -69,7 +68,7 @@ plot(t_2_com, dtheta_2_com);
 title('$\dot{\theta}_2$','FontSize',30,'Interpreter','Latex');
 xlabel('Time (seconds)','FontSize',20,'Interpreter','Latex');
 ylabel('Angular Velocity (rad/s)','FontSize',20,'Interpreter','Latex');
-legend({'(Missing) reference $\dot{\theta}_2$', 'Actual $\dot{\theta}_2$'},'Interpreter','Latex')
+legend({'(Missing) reference $\dot{\theta}_2$', 'Actual $\dot{\theta}_2$'},'FontSize',20,'Interpreter','Latex');
 grid on;
 
 %% Plot 4/5/6 - The same plots as plot 1/2/3, since supplemented data has been used
