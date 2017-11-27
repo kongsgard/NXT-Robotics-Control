@@ -21,7 +21,7 @@ dy_c = fulldiff(y_c,GC);
 dy_p = fulldiff(y_p,GC);
 
 % 2. Kinetic Energy:
-T = (1/2)*(m_c(dx_c^2 + dy_c^2) + J_c*dtheta^2) + (1/2)*(m_p(dx_p^2 + dy_p^2) + J_p*dtheta^2);
+T = (1/2)*(m_c*(dx_c^2 + dy_c^2) + J_c*dtheta^2) + (1/2)*(m_p*(dx_p^2 + dy_p^2) + J_p*dtheta^2);
 
 % 3. Potential Energy:
 V = m_c*g*r_c*(1-cos(theta)) + m_p*g*L*(1-cos(theta+beta)) - k*(r_c-L); 
@@ -30,10 +30,11 @@ V = m_c*g*r_c*(1-cos(theta)) + m_p*g*L*(1-cos(theta+beta)) - k*(r_c-L);
 La = T-V;
 
 % 5. EOMs:
-eq1 = fulldiff(diff(La,dr_c),GC) - diff(La,r_c)
+eq1 = fulldiff(diff(La,dr_c),GC) - diff(La,r_c);
+eq1 = simplify(eq1);
 eq2 = fulldiff(diff(La,dtheta),GC) - diff(La,theta);
-eq2 = simplify(eq2)
+eq2 = simplify(eq2);
 
 % 6. Xi: non-conservative terms
-Xi1 = 0  % 
-Xi2 = 0  %
+Xi1 = F_c;  % 
+Xi2 = 0;  %
