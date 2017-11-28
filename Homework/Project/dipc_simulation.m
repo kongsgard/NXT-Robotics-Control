@@ -9,20 +9,18 @@ X_0 = [0; 0; 0; 0; 0; 0];
 figure(11); clf;
 plot(t_out, y_out);
 
-
+% simulate_frame_for_cart_with_two_link_pendulum(q);
 
 
 %% System
 
-dt = 0.01;
-t  = 0:dt:5; % 0 to 5 seconds
+% Linearize the system
 
-q_initial  = [0, 0, 0]; % Initial condition
-dq_initial = [0, 0, 0]; 
+A = 
+B =
 
-%X = [] 
+C = 
+
+D = 
 
 
-[t, q] = ode45(@sys, t, [q_initial dq_initial]);
-
-% simulate_frame_for_cart_with_two_link_pendulum(q);
