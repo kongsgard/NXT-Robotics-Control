@@ -55,3 +55,16 @@ eq3 = simplify(eq3);
 Xi1 = tau; % Motor force tau on cart
 Xi2 = 0;
 Xi3 = 0;
+
+% Solve for GCs
+eqn1 = eq1 == Xi1;
+eqn2 = eq2 == Xi2;
+eqn3 = eq3 == Xi3;
+syms d2x d2theta_1 d2theta_2;
+sol = solve([eqn1 eqn2 eqn3], [d2x d2theta_1 d2theta_2]);
+
+diary('dipc_solutions');
+d2x = sol.d2x
+d2theta_1 = sol.d2theta_1;
+d2theta_2 = sol.d2theta_2;
+diary off;
