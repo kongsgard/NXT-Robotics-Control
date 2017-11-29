@@ -64,7 +64,7 @@ syms d2x d2theta_1 d2theta_2;
 sol = solve([eqn1 eqn2 eqn3], [d2x d2theta_1 d2theta_2]);
 
 diary('dipc_solutions');
-d2x = sol.d2x
-d2theta_1 = sol.d2theta_1;
+d2x = sol.d2x;
+d2theta_1 = sol.d2theta_1
 d2theta_2 = sol.d2theta_2;
 diary off;

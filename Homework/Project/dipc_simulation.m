@@ -9,7 +9,7 @@ X_0 = [0; 0; 0; 0; 0; 0];
 figure(11); clf;
 plot(t_out, y_out);
 
-% simulate_frame_for_cart_with_two_link_pendulum(q);
+simulate_frame_for_cart_with_two_link_pendulum(q);
 
 
 %% System
