@@ -1,6 +1,6 @@
 function M = dipc_animate( t_out, y_out )
 
-dt = (1/15);
+dt = (1/5);
 t = 0:dt:max(t_out);
 %M = zeros(1,length(t));
 
@@ -14,6 +14,10 @@ for n=1:length(t)
     q = [x; theta_1; theta_2];
     
     simulate_frame_for_cart_with_two_link_pendulum(q);
+    
+    str_val = ['t = ', num2str(t(n),'%.2f')];
+    title(str_val);
+    
     M(n) = getframe;
 end
 
