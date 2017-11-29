@@ -64,7 +64,38 @@ syms d2x d2theta_1 d2theta_2;
 sol = solve([eqn1 eqn2 eqn3], [d2x d2theta_1 d2theta_2]);
 
 diary('dipc_solutions');
-d2x = sol.d2x;
+d2x = sol.d2x
 d2theta_1 = sol.d2theta_1
-d2theta_2 = sol.d2theta_2;
+d2theta_2 = sol.d2theta_2
 diary off;
+
+%% EOMs (calculated by hand):
+eq1 = (m_0+m_1+m_2)*d2x + (1/2)*l_1*(m_1+2*m_2*l_1)*(d2theta_1*cos(theta_1)-dtheta_1^2*sin(theta_1)) + m_2*l_2*(d2theta_2*cos(theta_2)-dtheta_2^2*sin(theta_2));
+
+% System Matrices
+% M*d2X = RHS
+M_11 = m_0+m_1+m_2;
+M_12 = (1/2)*(l_1*(m_1+2*m_2*l_1)*cos(theta_1));
+M_13 = m_2*l_2*cos(theta_2);
+M_21 = (1/2)*(l_1*(m_1+2*m_2)*cos(theta_1));
+M_22 = (1/2)*m_1*l_1^2 + m_2*l_1^2 + I_1;
+M_23 = m_2*l_1*l_2*cos(theta_1-theta_2);
+M_31 = (1/2)*m_2*l_2*cos(theta_2);
+M_32 = (1/2)*m_2*l_1*l_2*cos(theta_1-theta_2);
+M_33 = (1/2)*m_2*l_2^2 + I_2;
+
+M = [M_11 M_12 M_13;
+     M_21 M_22 M_33;
+     M_31 M_32 M_33];
+
+d2X = [d2x; d2theta_1; d2theta_2];
+
+RHS_1 = tau + (1/2)*(l_1*(m_1+2*m_2*l_1)*dtheta_1^*sin(theta_1) - m_2*l_2*dtheta_2^2*sin(theta_2);
+RHS_2 = 
+RHS_3 =
+
+RHS = [RHS_1;
+       RHS_2;
+       RHS_3];
+   
+d2X = M\RHS;
