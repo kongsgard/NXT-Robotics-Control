@@ -12,6 +12,7 @@ legend({'$r_c$','$\theta$','$\dot{r_c}$','$\dot{\theta}$'},'Location','NorthWest
 M = p1_animate(t_out, y_out);
 
 %% Whacky Pendulum Simulation (F_c = -2*dr_c)
+% (Change F_c in 'whacky_pendulum_function)
 X_0 = [0; 0.4; 0; 0];
 [t_out,y_out] = ode45(@whacky_pendulum_function,[0 100],X_0');
 

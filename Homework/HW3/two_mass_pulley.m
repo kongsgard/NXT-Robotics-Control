@@ -37,8 +37,8 @@ Xi2 = -b*x_2^2*(dx_2/R_2);
 m_1=2; m_2=1; J=0.16; k=400; b=10; R_2=0.4; R_1=0.6;  % SI units
 syms d2x_1 d2x_2
 
-eq1 = d2x_1*m_1 + k*x_1;
-eq2 = d2x_2*(m_2 + J/R_2^2) - g*m_2;
+eq1 = d2x_1*m_1 + k*x_1                 == Xi1;
+eq2 = d2x_2*(m_2 + J/R_2^2) - g*m_2     == Xi2;
 
 %% State space
 % x = [x_1 x_2 dx_1 dx_2]
@@ -53,5 +53,7 @@ B = [0;
      F_1;
      0];
 
+dX = A
+ 
 %% Eigenvalues
 eig(A)
