@@ -6,8 +6,8 @@ mw = 0.03;              % (kg) combined mass of BOTH wheels (SMALL WHEELS)
 L = .095;               % (meters)  Length from wheel to body mass.
 mb = 0.626;             % (kg) body mass 
 
-acc_offset = -0.084796174523132;  %sensor calibration to be done by you
-gyro_offset = 60.184661865224363;
+acc_offset = -0.0267;  %sensor calibration to be done by you
+gyro_offset = 53.8502;
 
 Jw = mw*Rw^2/2;         % wheel inertia
 Jb = mb*L^2/3;          % body inertia
@@ -87,7 +87,7 @@ K_3 = 0;
 K_4 = -59.8;
 
 %% Trajectory
-traj_phi = [zeros(1,50), linspace(0,1.524/Rw,180), (1.524/Rw)*ones(1,10)];
+traj_phi = [zeros(1,50), linspace(0,1.524/Rw,150), (1.524/Rw)*ones(1,10)];
 traj_phi = [traj_phi, fliplr(traj_phi)];
 traj_phi = smooth(traj_phi,20);
 
