@@ -11,16 +11,15 @@ plot(t_out, y_out);
 
 M = dipc_animate(t_out, y_out);
 
-
 %% System
 
 % Linearize the system
 
-A = 
-B =
+%A = 
+%B =
 
-C = 
+%C = 
 
-D = 
+%D = 
 
 

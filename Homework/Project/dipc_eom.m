@@ -63,11 +63,41 @@ eqn3 = eq3 == Xi3;
 syms d2x d2theta_1 d2theta_2;
 sol = solve([eqn1 eqn2 eqn3], [d2x d2theta_1 d2theta_2]);
 
-diary('dipc_solutions');
-d2x = sol.d2x
-d2theta_1 = sol.d2theta_1
-d2theta_2 = sol.d2theta_2
-diary off;
+%diary('dipc_solutions');
+d2x = sol.d2x;
+d2theta_1 = sol.d2theta_1;
+d2theta_2 = sol.d2theta_2;
+%diary off;
+
+%% Linearization
+syms d2x d2theta_1 d2theta_2;
+q = [x theta_1 theta_2 dx dtheta_1 dtheta_2]';
+lin_point = [0 0 0 0 0 0]';
+
+M_11 = m_0 + m_1 + m_2;
+M_12 = ((cos(theta_1)*l_1^2 + cos(conj(theta_1))*abs(l_1)^2)*(m_1 + 2*m_2))/(4*l_1);
+M_13 = (m_2*(cos(theta_2)*l_2^2 + cos(conj(theta_2))*abs(l_2)^2))/(4*l_2);
+M_21 = (l_1*m_1*cos(theta_1))/4 + (l_1*m_2*cos(theta_1))/2 + (m_1*cos(conj(theta_1))*conj(l_1))/4 + (m_2*cos(conj(theta_1))*conj(l_1))/2;
+M_22 = I_1 + (m_1*cos(theta_1 - conj(theta_1))*abs(l_1)^2)/4 + m_2*cos(theta_1 - conj(theta_1))*abs(l_1)^2;
+M_23 = (l_1*m_2*cos(theta_1 - conj(theta_2))*conj(l_2))/4 + (l_2*m_2*cos(theta_2 - conj(theta_1))*conj(l_1))/4;
+M_31 = (l_2*m_2*cos(theta_2))/4 + (m_2*cos(conj(theta_2))*conj(l_2))/4;
+M_32 = (l_1*m_2*cos(theta_1 - conj(theta_2))*conj(l_2))/4 + (l_2*m_2*cos(theta_2 - conj(theta_1))*conj(l_1))/4;
+M_33 = I_2 + (m_2*cos(theta_2 - conj(theta_2))*abs(l_2)^2)/4;
+
+M = [M_11 M_12 M_13;
+     M_21 M_22 M_33;
+     M_31 M_32 M_33];
+
+% Linearized (around working point q=0):
+M_11 = m_0 + m_1 + m_2;
+M_12 = ;
+M_13 = ;
+M_21 = ;
+M_22 = ;
+M_23 = ;
+M_31 = ;
+M_32 = ;
+M_33 = ;
 
 %% EOMs (calculated by hand):
 eq1 = (m_0+m_1+m_2)*d2x + (1/2)*l_1*(m_1+2*m_2*l_1)*(d2theta_1*cos(theta_1)-dtheta_1^2*sin(theta_1)) + m_2*l_2*(d2theta_2*cos(theta_2)-dtheta_2^2*sin(theta_2));
@@ -91,8 +121,8 @@ M = [M_11 M_12 M_13;
 d2X = [d2x; d2theta_1; d2theta_2];
 
 RHS_1 = tau + (1/2)*(l_1*(m_1+2*m_2*l_1)*dtheta_1^*sin(theta_1) - m_2*l_2*dtheta_2^2*sin(theta_2);
-RHS_2 = 
-RHS_3 =
+RHS_2 = 1;
+RHS_3 = 1;
 
 RHS = [RHS_1;
        RHS_2;

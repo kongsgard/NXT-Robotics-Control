@@ -19,7 +19,7 @@ dx_2 = fulldiff(x_2,GC);
 T = (1/2)*m_1*dx_1^2 + (1/2)*m_2*dx_2^2 + (1/2)*J*(dx_2/R_2)^2;
 
 % 3. Potential Energy:
-V = -m_2*g*x_2 + (1/2)*k*x_1^2;
+V = -m_2*g*x_2 + (1/2)*k*(x_1-(R_1/R_2)*x_2)^2;
 
 % 4. Lagrangian:
 La = T-V;
@@ -31,29 +31,28 @@ eq2 = simplify(eq2);
 
 % 6. Xi: non-conservative terms
 Xi1 = F_1;      
-Xi2 = -b*x_2^2*(dx_2/R_2);
+Xi2 = -b*dx_2;
 
 %% Insert numeric values
 m_1=2; m_2=1; J=0.16; k=400; b=10; R_2=0.4; R_1=0.6;  % SI units
+g = 0;
 syms d2x_1 d2x_2
 
-eq1 = d2x_1*m_1 + k*x_1                 == Xi1;
-eq2 = d2x_2*(m_2 + J/R_2^2) - g*m_2     == Xi2;
+eq1 = d2x_1*m_1 + (k*(2*x_1 - (2*R_1*x_2)/R_2))/2                        == Xi1;
+eq2 = d2x_2*(m_2 + J/R_2^2) - g*m_2 - (R_1*k*(x_1 - (R_1*x_2)/R_2))/R_2  == Xi2;
 
 %% State space
 % x = [x_1 x_2 dx_1 dx_2]
 
-A = [0      0       1       0;
-     0      0       0       1;
-     -k/m_1   0       0       0;
-     0      0       0       -b/(m_2+(J/R_2^2))];
+A = [0                                0                                 1       0;
+     0                                0                                 0       1;
+     -k/m_1                           (R_1/R_2)*k/m_1                   0       0;
+     (R_1/R_2)*k/(m_2+(J/R_2^2))      -(R_1/R_2)^2*k/(m_2+(J/R_2^2))    0       -b/(m_2+(J/R_2^2))];
 
 B = [0;
      0;
-     F_1;
+     1;
      0];
-
-dX = A
  
 %% Eigenvalues
 eig(A)
