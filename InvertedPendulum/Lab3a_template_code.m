@@ -6,8 +6,8 @@ mw = 0.03;              % (kg) combined mass of BOTH wheels (SMALL WHEELS)
 L = .095;               % (meters)  Length from wheel to body mass.
 mb = 0.626;             % (kg) body mass 
 
-acc_offset = 0.027770636593421;  %sensor calibration to be done by you
-gyro_offset = 63.703796386718757;
+acc_offset = -0.084796174523132;  %sensor calibration to be done by you
+gyro_offset = 60.184661865224363;
 
 Jw = mw*Rw^2/2;         % wheel inertia
 Jb = mb*L^2/3;          % body inertia
@@ -19,7 +19,7 @@ Km = Nmotors*b/Klego ;  % Motor effort constant;
 W = 165*10^(-3);        % wheel-to-wheel width
 
 Ts=0.005;               %sampling time of control task
-Ts_traj = Ts;
+Ts_traj = 0.1;
 traj_phi = 0; traj_dphi = 0;
 %% Define Filters
 
@@ -70,19 +70,29 @@ D = [0 0 0 0]';
 ss1 = ss(A,B,C,D);
 open_loop_poles = eig(A);
 
-% Q = diag([5 1300 20 1]);
 Q = diag([5 1300 20 1]);
-R = 1.5;
+% Q = diag([1 15 5 1]);
+R = 1;
 K = lqr(A,B,Q,R);
 
 K(3) = 0;           %performance is better w/ dphi state zero or small
-K;
-eig(A-B*K)
+K
+eig(A-B*K);
 
 
 %% Tuned:
+K_1 = -45;
+K_2 = -1200;
+K_3 = 0;
+K_4 = -59.8;
 
+%% Trajectory
+traj_phi = [zeros(1,50), linspace(0,1.524/Rw,180), (1.524/Rw)*ones(1,10)];
+traj_phi = [traj_phi, fliplr(traj_phi)];
+traj_phi = smooth(traj_phi,20);
 
+traj_dphi = [0; (diff(traj_phi))/Ts_traj];
+    
 %    _________________________________
 %   |:::::::::::::;;::::::::::::::::::|
 %   |:::::::::::'~||~~~``:::::::::::::|
