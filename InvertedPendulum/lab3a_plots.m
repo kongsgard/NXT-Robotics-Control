@@ -77,3 +77,27 @@ xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
 ylabel('Output', 'FontSize', 20, 'Interpreter', 'Latex');
 ylim([-200 200])
 xlim([0 16]);
+
+%% Plot 1b
+load('mat-files/plot1b.mat');
+
+t_theta = simout_theta.time;
+theta = simout_theta.signals.values;
+
+t_phi = simout_phi.time;
+phi = simout_phi.signals.values;
+
+figure(5); clf;
+subplot(2, 1, 1); hold on;
+plot(t_theta - 56, theta);
+title('Body Angle, $\theta$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 16]);
+
+subplot(2, 1, 2); hold on;
+plot(t_phi - 56, phi);
+title('Wheel Angle, $\phi$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+xlim([0 16]);

@@ -6,7 +6,7 @@ figure(11); clf;
 plot(t_out, y_out);
 title('Whacky Pendulum ($F_c = 0$)','FontSize',30,'Interpreter','Latex');
 xlabel('Time (seconds)','FontSize',20,'Interpreter','Latex');
-ylabel('Angle (rad)','FontSize',20,'Interpreter','Latex');
+%ylabel('Angle (rad)','FontSize',20,'Interpreter','Latex');
 legend({'$r_c$','$\theta$','$\dot{r_c}$','$\dot{\theta}$'},'Location','NorthWest','FontSize',20,'Interpreter','Latex')
 
 M = p1_animate(t_out, y_out);
@@ -18,9 +18,9 @@ X_0 = [0; 0.4; 0; 0];
 
 figure(11); clf;
 plot(t_out, y_out);
-title('Whacky Pendulum ($F_c = -2*\dot{r_c}$)','FontSize',30,'Interpreter','Latex');
+title('Whacky Pendulum ($F_c = -2 \dot{r}_c$)','FontSize',30,'Interpreter','Latex');
 xlabel('Time (seconds)','FontSize',20,'Interpreter','Latex');
-ylabel('Angle (rad)','FontSize',20,'Interpreter','Latex');
-legend({'$r_c$','$\theta$','$\dot{r_c}$','$\dot{\theta}$'},'Location','NorthWest','FontSize',20,'Interpreter','Latex')
+%ylabel('Angle (rad)','FontSize',20,'Interpreter','Latex');
+legend({'$r_c$','$\theta$','$\dot{r_c}$','$\dot{\theta}$'},'Location','NorthEast','FontSize',20,'Interpreter','Latex')
 
 M = p1_animate(t_out, y_out);

@@ -77,7 +77,7 @@ K = lqr(A,B,Q,R);
 
 K(3) = 0;           %performance is better w/ dphi state zero or small
 K
-eig(A-B*K);
+e = eig(A-B*K)
 
 
 %% Tuned:
@@ -93,6 +93,11 @@ traj_phi = smooth(traj_phi,20);
 
 traj_dphi = [0; (diff(traj_phi))/Ts_traj];
     
+plot(traj_phi); hold on;
+title('Wheel reference angle, $\phi$', 'FontSize', 30, 'Interpreter', 'Latex');
+xlabel('Time (seconds)', 'FontSize', 20, 'Interpreter', 'Latex');
+ylabel('Angle (rad)', 'FontSize', 20, 'Interpreter', 'Latex');
+
 %    _________________________________
 %   |:::::::::::::;;::::::::::::::::::|
 %   |:::::::::::'~||~~~``:::::::::::::|
