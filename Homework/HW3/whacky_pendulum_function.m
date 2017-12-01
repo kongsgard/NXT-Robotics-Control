@@ -14,8 +14,8 @@ k       = 10;
 beta    = 40*pi/180; % (rad)
 g       = 9.81;
 
-F_c     = 0;
-%F_c     = -2*dr_c;
+%F_c     = 0;
+F_c     = -2*dr_c;
 
 d2r_c = (F_c + (k*(2*L - 2*r_c))/2 + L*g*m_c*cos(theta))/m_c;
 d2theta = -(L*g*m_p*sin(beta + theta) + L*g*m_c*r_c*sin(theta))/(J_c + J_p);
