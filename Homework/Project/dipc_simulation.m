@@ -2,7 +2,7 @@
 %% System EOMs
 % run('dipc_eom.m');
 
-%% Simulation
+%% Open loop simulation
 X_0 = [0; 0; 0; 0; 0; 0];
 [t_out,y_out] = ode45(@dipc_function,[0 25],X_0');
 
@@ -11,15 +11,8 @@ plot(t_out, y_out);
 
 M = dipc_animate(t_out, y_out);
 
-%% System
+%% Closed loop simulation from an initial condition that is CLOSE to the equilibrium
 
-% Linearize the system
 
-%A = 
-%B =
-
-%C = 
-
-%D = 
-
+%% Closed loop simulation from an initial condition that is FURTHER from the equilibrium
 

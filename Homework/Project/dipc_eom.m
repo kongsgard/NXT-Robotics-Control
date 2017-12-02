@@ -153,3 +153,81 @@ B = inv(M) * B_m;
 C = eye(6);
 D = 0;
 
+poles_ol = eig(A);
+% With the parameters as defined in dipc_function we get the following
+% poles:
+% 0
+% 0
+% 3.7312
+% 2.1467
+% -2.1467
+% -3.7312
+% -> Poles in RHS -> Unstable
+
+%% Controller
+load('ABCD.mat'); %State space matrices for the system (with numeric values)
+
+% Initial condition response
+X_0 = [0 0 0.1 0 0 0]';
+
+Q = diag([1 1 1 1 1 1]);
+R = [1];
+K = lqr(A, B, Q, R);
+
+X_dot_cl = ss(A-B*K,[], C, D);
+eig_cl_R1 = eig(A-B*K);
+
+% Plot 1
+dt = 0.001;
+t = 0:dt:5;
+[~, t, x] = initial(X_dot_cl, X_0, t);
+
+u = zeros(1, length(x(:,1)));
+
+for i = 1:length(x(:,1))
+    u(i) = -K*x(i,:)';
+end
+%%%%%%%%%%%%%%%%%% PLOT %%%%%%%%%%%%%%%%%
+figure(1); clf; hold on;
+
+subplot(7,1,1);
+plot(t,u)
+ylabel('u','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
+
+subplot(7,1,2);
+plot(t,x(:,1));
+ylabel('$x$','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
+
+subplot(7,1,3);
+plot(t,x(:,2));
+ylabel('$\theta_{1}$','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
+
+subplot(7,1,4);
+plot(t,x(:,3));
+ylabel('$\theta_{1}$','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
+
+subplot(7,1,5);
+plot(t,x(:,4));
+ylabel('$\dot{x}$','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
+
+subplot(7,1,6);
+plot(t,x(:,5));
+ylabel('$\dot{\theta}_1$','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
+
+subplot(7,1,7);
+plot(t,x(:,6));
+ylabel('$\dot{\theta}_2$','Interpreter','Latex');
+set(get(gca,'ylabel'),'rotation',0)
+grid on;
