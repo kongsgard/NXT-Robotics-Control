@@ -13,9 +13,9 @@ dtheta_1 = fulldiff(theta_1,GC);
 dtheta_2 = fulldiff(theta_2,GC);
 
 % 1b. Geometry of the masses/inertias, given GC's are freely changing...
-r_0 = [x; 
+r_0 = [x;
        0];
-   
+
 r_1 = [x + (1/2)*l_1*sin(theta_1);
        h_0 + (1/2)*l_1*cos(theta_1)];
 
@@ -84,21 +84,6 @@ M_31 = (l_2*m_2*cos(theta_2))/4 + (m_2*cos(conj(theta_2))*conj(l_2))/4;
 M_32 = (l_1*m_2*cos(theta_1 - conj(theta_2))*conj(l_2))/4 + (l_2*m_2*cos(theta_2 - conj(theta_1))*conj(l_1))/4;
 M_33 = I_2 + (m_2*cos(theta_2 - conj(theta_2))*abs(l_2)^2)/4;
 
-M = [M_11 M_12 M_13;
-     M_21 M_22 M_33;
-     M_31 M_32 M_33];
-
-% Linearized (around working point q=0):
-M_11 = m_0 + m_1 + m_2;
-M_12 = ;
-M_13 = ;
-M_21 = ;
-M_22 = ;
-M_23 = ;
-M_31 = ;
-M_32 = ;
-M_33 = ;
-
 %% EOMs (calculated by hand):
 eq1 = (m_0+m_1+m_2)*d2x + (1/2)*l_1*(m_1+2*m_2*l_1)*(d2theta_1*cos(theta_1)-dtheta_1^2*sin(theta_1)) + m_2*l_2*(d2theta_2*cos(theta_2)-dtheta_2^2*sin(theta_2));
 
@@ -114,18 +99,57 @@ M_31 = (1/2)*m_2*l_2*cos(theta_2);
 M_32 = (1/2)*m_2*l_1*l_2*cos(theta_1-theta_2);
 M_33 = (1/2)*m_2*l_2^2 + I_2;
 
-M = [M_11 M_12 M_13;
+% Linearized (around working point q=0):
+% ( By setting cos(theta)=1 )
+M_11 = m_0 + m_1 + m_2;
+M_12 = (1/2)*l_1*(m_1+2*m_2*l_1);
+M_13 = m_2*l_2;
+M_21 = (1/2)*l_1*(m_1+2*m_2);
+M_22 = (1/2)*m_1*l_1^2 + m_2*l_1^2 + I_1;
+M_23 = m_2*l_1*l_2;
+M_31 = (1/2)*m_2*l_2;
+M_32 = (1/2)*m_2*l_1*l_2;
+M_33 = (1/2)*m_2*l_2^2 + I_2;
+
+M_temp = [
+     M_11 M_12 M_13;
      M_21 M_22 M_33;
      M_31 M_32 M_33];
+ 
+M = [eye(3),zeros(3);zeros(3),M_temp];
 
 d2X = [d2x; d2theta_1; d2theta_2];
 
-RHS_1 = tau + (1/2)*(l_1*(m_1+2*m_2*l_1)*dtheta_1^*sin(theta_1) - m_2*l_2*dtheta_2^2*sin(theta_2);
-RHS_2 = 1;
-RHS_3 = 1;
+RHS_1 = tau + (1/2)*(l_1*(m_1+2*m_2*l_1)*dtheta_1^2*sin(theta_1) - m_2*l_2*dtheta_2^2*sin(theta_2));
+RHS_2 = (1/2)*(-m_2*l_1*l_2*dtheta_2^2*sin(theta_1-theta_2) + (m_1+2*m_2)*g*l_1*sin(theta_1));
+RHS_3 = (1/2)*(m_2*l_1*l_2*dtheta_1^2*sin(theta_1-theta_2) + m_2*g*l_2*sin(theta_2));
+
+%Linearized:
+RHS_1 = tau;
+RHS_2 = (1/2)*((m_1+2*m_2)*g*l_1*theta_1);
+RHS_3 = (1/2)*(m_2*g*l_2*theta_2);
 
 RHS = [RHS_1;
        RHS_2;
        RHS_3];
    
-d2X = M\RHS;
+A_m = [0 0 0 1 0 0;
+       0 0 0 0 1 0;
+       0 0 0 0 0 1;
+       0 0 0 0 0 0;
+       0 (1/2)*(m_1+2*m_2)*g*l_1 0 0 0 0;
+       0 0 (1/2)*m_2*g*l_2 0 0 0];
+    
+B_m = [0;
+       0;
+       0;
+       1;
+       0;
+       0];
+
+A = inv(M) * A_m;
+B = inv(M) * B_m;
+
+C = eye(6);
+D = 0;
+

@@ -3,7 +3,7 @@
 % run('dipc_eom.m');
 
 %% Simulation
-X_0 = [0; 0.01; -0.04; 0; 0; 0];
+X_0 = [0; 0; 0; 0; 0; 0];
 [t_out,y_out] = ode45(@dipc_function,[0 25],X_0');
 
 figure(11); clf;
