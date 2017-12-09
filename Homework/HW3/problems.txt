@@ -1,0 +1,15 @@
+Problem 1:
+- whacky_pendulum*
+
+Problem 2:
+- two_mass_pulley.m
+
+Problem 3:
+- See hw3.pdf
+- f) task3.m
+
+Problem 4:
+- inverted_pendulum.m
+
+Problem 5:
+- See hw3.pdf
